@@ -1,0 +1,11 @@
+--- congruity.orig	2014-07-23 23:43:25.489158941 -0500
++++ congruity	2014-07-23 11:03:25.993059640 -0500
+@@ -27,7 +27,7 @@
+ import traceback
+ 
+ import wxversion
+-wxversion.ensureMinimal('2.8')
++wxversion.select('2.8')
+ import wx
+ import wx.lib.dialogs
+ 
