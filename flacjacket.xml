@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>                                                                                                     
+<repositories version="1.0">
+	<repo priority="50" quality="experimental" status="unofficial">
+		<name>flacjacket</name>
+		<description>Custom stuff from flacjacket</description>
+		<homepage>http://github.com/flacjacket/</homepage>
+		<source type="git">git://github.com/flacjacket/gentoo-overlay.git</source>
+	</repo>
+</repositories>
