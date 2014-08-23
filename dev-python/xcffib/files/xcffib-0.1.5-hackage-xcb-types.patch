@@ -1,0 +1,69 @@
+commit d99e5db6435bf303b02b0f923c8c5ad53d7cef5e
+Author: Tycho Andersen <tycho@tycho.ws>
+Date:   Fri Aug 22 07:56:02 2014 -0500
+
+    Depend on the hackage vesion of xcb-types
+
+diff --git a/.travis.yml b/.travis.yml
+index 5855a39..fd72f9a 100644
+--- a/.travis.yml
++++ b/.travis.yml
+@@ -14,10 +14,6 @@ before_install:
+ install:
+   - sudo apt-get install ghc cabal-install git xcb-proto happy alex xvfb libxcb1-dev x11-apps parallel
+   - cabal update
+-  - git clone https://github.com/tych0/xcb-types.git
+-  - cd xcb-types
+-  - cabal install
+-  - cd ..
+   - cabal install --only-dependencies --enable-tests
+   - cabal configure --enable-tests
+   - pip install -r requirements.txt
+diff --git a/README.md b/README.md
+index 56317eb..a7515a2 100644
+--- a/README.md
++++ b/README.md
+@@ -15,11 +15,7 @@ you're interested in doing development, read on...
+ 
+ ## Development dependencies
+ 
+-Currently `xcb-types` (any tagged version, not just the old one on Hackage)
+-doesn't run against `xcb-proto` 1.10; there is a hacked branch available at
+-[tych0/xcb-types](http://github.com/tych0/xcb-types) that allows you to parse
+-xcb-proto 1.10 mostly correctly. Other than that, you should be able to install
+-all the deps from hackage or pip. The
++You should be able to install all the language deps from hackage or pip. The
+ [.travis.yaml](https://github.com/tych0/xcffib/blob/master/.travis.yml) has an
+ example of how to install the dependencies on Ubuntu flavors.
+ 
+diff --git a/xcffib.cabal b/xcffib.cabal
+index 5849267..ef6c8e8 100644
+--- a/xcffib.cabal
++++ b/xcffib.cabal
+@@ -18,7 +18,7 @@ source-repository head
+ 
+ library
+   build-depends: base ==4.*,
+-                 xcb-types >= 0.7.1,
++                 xcb-types >= 0.7.0,
+                  language-python >= 0.4.0,
+                  filepath,
+                  filemanip,
+@@ -39,7 +39,7 @@ executable xcffibgen
+                  xcffib >= 0.1.0,
+                  language-python >= 0.4.0,
+                  split,
+-                 xcb-types >= 0.7.1,
++                 xcb-types >= 0.7.0,
+                  optparse-applicative >= 0.5,
+                  filepath,
+                  filemanip,
+@@ -67,7 +67,7 @@ test-suite GeneratorTests.hs
+   type: exitcode-stdio-1.0
+   build-depends: base ==4.*,
+                  xcffib >= 0.1.0,
+-                 xcb-types >= 0.7.1,
++                 xcb-types >= 0.7.0,
+                  language-python >= 0.4.0,
+                  HUnit,
+                  test-framework,

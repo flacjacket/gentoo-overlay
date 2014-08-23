@@ -29,13 +29,15 @@ dev-haskell/happy
 >=dev-haskell/mtl-2.1
 >=dev-haskell/optparse-applicative-0.5
 dev-haskell/split
->=dev-haskell/xcb-types-0.7.1
+>=dev-haskell/xcb-types-0.7.0
 dev-python/autopep8
 sys-process/parallel
 test? ( dev-python/flake8[${PYTHON_USEDEP}]
 		dev-python/nose[${PYTHON_USEDEP}]
 		dev-haskell/test-framework-hunit )
 "
+
+PATCHES=( "${FILESDIR}"/${P}-hackage-xcb-types.patch )
 
 src_configure() {
 	distutils-r1_python_configure
