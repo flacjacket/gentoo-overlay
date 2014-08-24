@@ -1,0 +1,5 @@
+sys-apps/qingy directfb -gpm -consolekit opensslcrypt
+media-libs/libsdl directfb fbcon
+dev-libs/DirectFB drmkms dynload multicore fbcon
+x11-libs/libdrm libkms
+media-libs/mesa gbm

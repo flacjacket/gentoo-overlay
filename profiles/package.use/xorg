@@ -1,0 +1,6 @@
+dev-libs/libxml2 python
+dev-util/cmake -qt4
+dev-vcs/git -gtk
+media-libs/mesa -classic
+net-wireless/wpa_supplicant -qt4
+x11-base/xorg-server kdrive xvfb
