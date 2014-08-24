@@ -1,0 +1,10 @@
+=dev-python/cairocffi-9999
+dev-python/xcffib
+media-gfx/qingy-themes
+sys-apps/qingy
+x11-terms/rxvt-unicode
+x11-themes/gnome-icon-theme
+x11-themes/haematite-xcursors
+x11-themes/tango-icon-theme
+
+@X

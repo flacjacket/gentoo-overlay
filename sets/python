@@ -1,0 +1,11 @@
+dev-haskell/test-framework-hunit
+dev-python/coverage
+dev-python/flake8
+dev-python/ipython
+dev-python/nose
+dev-python/numpy
+dev-python/pandas
+dev-python/sphinx
+dev-python/sympy
+dev-python/virtualenvwrapper
+sci-libs/scipy
