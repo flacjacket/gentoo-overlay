@@ -23,6 +23,7 @@ DEPEND="${RDEPEND}
 dev-lang/ghc
 dev-haskell/alex
 dev-haskell/attoparsec
+dev-haskell/cabal-install
 dev-haskell/filemanip
 dev-haskell/happy
 >=dev-haskell/language-python-0.4.0
