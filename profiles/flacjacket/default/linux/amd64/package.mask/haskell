@@ -1,4 +1,3 @@
 # Mask some Haskell stuff to make installing qtile easier
 =dev-haskell/optparse-applicative-0.9.1.1
 >=dev-haskell/mtl-2.2
->=dev-haskell/transformers-0.4
