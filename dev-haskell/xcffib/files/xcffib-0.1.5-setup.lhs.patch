@@ -1,0 +1,6 @@
+--- dev/null	2014-08-24 15:54:00.371354902 -0500
++++ Setup.lhs	2014-08-31 21:54:55.921840535 -0500
+@@ -0,0 +1,3 @@
++#!/usr/bin/env runhaskell
++> import Distribution.Simple
++> main = defaultMain
