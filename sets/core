@@ -1,5 +1,5 @@
-app-admin/rsyslog
 app-admin/sudo
+app-admin/syslog-ng
 app-editors/vim
 app-misc/tmux
 app-shells/bash-completion
