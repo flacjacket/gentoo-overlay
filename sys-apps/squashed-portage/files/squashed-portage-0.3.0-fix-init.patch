@@ -52,6 +52,17 @@
  		einfo "${SQFSS[${a}]} mounted in ${RW}"
  	done; unset a i rw
  	eend ${?}
+@@ -147,8 +147,8 @@
+ 				mv -f "${SNEW}" "${SOLD}"
+ 				retuval ${?} "Error: mv -f \"${SNEW}\" \"${SOLD}\""
+ 				[ -w "${SQFS_DIRNAME}" ] && \
+-				/usr/bin/mksquashfs "${SQFS_DIRNAME}/${SQFSS[${i}]}" "${SNEW}" ${SQFS_OPTS}
+-				retuval ${?} "Error: /usr/bin/mksquashfs \"${SQFS_DIRNAME}/${SQFSS[${i}]}\" \"${SNEW}\" ${SQFS_OPTS}"
++				/usr/bin/mksquashfs "/usr/${SQFSS[${i}]}" "${SNEW}" ${SQFS_OPTS}
++				retuval ${?} "Error: /usr/bin/mksquashfs \"/usr/${SQFSS[${i}]}\" \"${SNEW}\" ${SQFS_OPTS}"
+ 				/bin/ln -fs "${SNEW}" "${SS}"
+ 				retuval ${?} "Error: /bin/ln -fs \"${SNEW}\" \"${SS}\""
+ 			else
 @@ -167,10 +161,10 @@
  		for i in ${SQFSS[@]}; do
  		[ ${a} ] && a=$[${a}+1] || local a=0
