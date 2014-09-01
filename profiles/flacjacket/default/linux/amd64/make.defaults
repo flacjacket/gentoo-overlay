@@ -1,0 +1,1 @@
+USE="djvu mmx mmxext sse sse2 ssse3 xinerama zsh-completion -gpm -pulseaudio -qt3support -startup-notification"

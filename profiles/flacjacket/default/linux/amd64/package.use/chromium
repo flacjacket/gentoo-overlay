@@ -1,7 +1,5 @@
 dev-java/oracle-jdk-bin nsplugin
 dev-libs/libxml2 icu
-sys-libs/zlib minizip
-media-libs/mesa gles2
-media-video/ffmpeg opus
 dev-qt/qtwebkit icu
 media-libs/harfbuzz icu
+sys-libs/zlib minizip

@@ -1,5 +1,4 @@
 dev-lang/python sqlite
 media-libs/alsa-lib alisp
 dev-python/numpy lapack
-sci-libs/hdf5 -threads
 dev-python/ipython matplotlib nbconvert notebook
