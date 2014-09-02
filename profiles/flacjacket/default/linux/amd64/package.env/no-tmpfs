@@ -1,3 +1,2 @@
 app-office/libreoffice no-tmpfs
-www-client/chromium no-tmpfs
 dev-python/pypy no-tmpfs
