@@ -2,3 +2,5 @@
 >=dev-haskell/mtl-2.2
 =dev-haskell/optparse-applicative-0.9.1.1
 >=dev-haskell/transformers-0.4.0.0
+# More masks for ipython (pandoc) with qtile
+>=dev-haskell/network-2.6
