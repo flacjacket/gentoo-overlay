@@ -6,13 +6,13 @@ EAPI=5
 
 PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} pypy )
 
-inherit distutils-r1
+inherit python-r1
 
 DESCRIPTION="A drop-in replacement for xpyb based on cffi"
 HOMEPAGE="https://github.com/tych0/xcffib"
 SRC_URI="https://github.com/tych0/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="MIT"
+LICENSE="Apapche-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
