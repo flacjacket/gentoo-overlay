@@ -34,6 +34,8 @@ ruby_add_rdepend "
 	<dev-ruby/bundler-1.7
 	=dev-ruby/childprocess-0.5*
 	=dev-ruby/erubis-2.7*
+	=dev-ruby/hashicorp-checkpoint-0.1*
+	>=dev-ruby/hashicorp-checkpoint-0.1.1
 	dev-ruby/i18n:0.6
 	=dev-ruby/listen-2.7*
 	>=dev-ruby/listen-2.7.1
@@ -42,6 +44,7 @@ ruby_add_rdepend "
 	>=dev-ruby/net-ssh-2.6.6
 	<dev-ruby/net-ssh-2.10.0
 	=dev-ruby/net-scp-1.1*
+	=dev-ruby/nokogiri-1.6.3.1
 	=dev-ruby/rb-kqueue-0.2*
 	=dev-ruby/wdm-0.1*
 	=dev-ruby/winrm-1.1*
