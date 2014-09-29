@@ -24,7 +24,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc test"
 
-RDEPEND="dev-python/cairocffi[xcb,${PYTHON_USEDEP}]
+RDEPEND=">=dev-python/cairocffi-0.6[${PYTHON_USEDEP}]
 	>=dev-python/six-1.4.1[${PYTHON_USEDEP}]
 	>=dev-python/xcffib-0.1.5[${PYTHON_USEDEP}]
 	virtual/python-asyncio[${PYTHON_USEDEP}]"
