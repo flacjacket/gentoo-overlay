@@ -34,4 +34,4 @@ DEPEND="${RDEPEND}
 		dev-haskell/test-framework-hunit )
 "
 
-PATCHES=( "${FILESDIR}"/${P}-hackage-xcb-types.patch "${FILESDIR}"/${P}-setup.lhs.patch )
+PATCHES=( "${FILESDIR}"/${P}-hackage-xcb-types.patch "${FILESDIR}"/${PN}-setup.lhs.patch )
