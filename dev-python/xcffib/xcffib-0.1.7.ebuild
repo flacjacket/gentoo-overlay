@@ -28,7 +28,7 @@ DEPEND="${RDEPEND}
                  dev-python/nose[${PYTHON_USEDEP}] )
 "
 
-PATCHES=( "${FILESDIR}"/${P}-separate-haskell-package.patch )
+PATCHES=( "${FILESDIR}"/${PN}-separate-haskell-package.patch )
 
 python_prepare() {
 	emake xcffib
