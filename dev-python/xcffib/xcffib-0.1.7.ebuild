@@ -20,7 +20,8 @@ IUSE="test"
 RDEPEND="${PYTHON_DEPS}
          dev-haskell/xcffib:=
          dev-python/cffi[${PYTHON_USEDEP}]
-         dev-python/six[${PYTHON_USEDEP}]"
+         dev-python/six[${PYTHON_USEDEP}]
+         x11-proto/xcb-proto:="
 DEPEND="${RDEPEND}
          dev-python/autopep8[${PYTHON_USEDEP}]
          sys-process/parallel
