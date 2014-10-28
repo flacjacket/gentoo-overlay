@@ -9,9 +9,12 @@ EAPI=5
 CABAL_FEATURES="bin lib profile haddock hoogle hscolour test-suite"
 inherit base haskell-cabal
 
+MY_PN="xcffib"
+MY_P="${MY_PN}-${PV}"
+
 DESCRIPTION="A cffi-based python binding for X"
 HOMEPAGE="http://github.com/tych0/xcffib"
-SRC_URI="https://github.com/tych0/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://hackage/packages/archive/${MY_PN}/${PV}/${MY_P}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
@@ -33,5 +36,3 @@ DEPEND="${RDEPEND}
 		dev-haskell/test-framework
 		dev-haskell/test-framework-hunit )
 "
-
-PATCHES=( "${FILESDIR}"/${PN}-setup.lhs.patch )
