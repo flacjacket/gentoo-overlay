@@ -14,7 +14,8 @@ MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="A cffi-based python binding for X"
 HOMEPAGE="http://github.com/tych0/xcffib"
-SRC_URI="mirror://hackage/packages/archive/${MY_PN}/${PV}/${MY_P}.tar.gz -> ${P}.tar.gz"
+#SRC_URI="mirror://hackage/packages/archive/${MY_PN}/${PV}/${MY_P}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/tych0/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
@@ -36,3 +37,7 @@ DEPEND="${RDEPEND}
 		dev-haskell/test-framework
 		dev-haskell/test-framework-hunit )
 "
+
+S="${WORKDIR}/${MY_P}"
+
+PATCHES=( "${FILESDIR}"/${PN}-setup.hs.patch )
