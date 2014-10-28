@@ -11,7 +11,7 @@ inherit base haskell-cabal
 
 DESCRIPTION="A cffi-based python binding for X"
 HOMEPAGE="http://github.com/tych0/xcffib"
-SRC_URI="mirror://hackage/packages/archive/${PN}/${PV}/${P}.tar.gz"
+SRC_URI="https://github.com/tych0/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
@@ -34,4 +34,4 @@ DEPEND="${RDEPEND}
 		dev-haskell/test-framework-hunit )
 "
 
-PATCHES=( "${FILESDIR}"/${P}-hackage-xcb-types.patch "${FILESDIR}"/${PN}-setup.lhs.patch )
+PATCHES=( "${FILESDIR}"/${PN}-setup.lhs.patch )
