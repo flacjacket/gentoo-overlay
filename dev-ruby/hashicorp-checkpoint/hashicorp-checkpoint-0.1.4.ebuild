@@ -17,7 +17,7 @@ inherit ruby-fakegem
 DESCRIPTION="Internal HashiCorp service to check version information"
 HOMEPAGE="http://www.hashicorp.com/"
 
-LICENSE="MPL-2"
+LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""

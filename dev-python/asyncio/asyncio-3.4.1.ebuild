@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Reference implementation of PEP 3156"
 HOMEPAGE="http://www.python.org/dev/peps/pep-3156/"
-SRC_URI="https://pypi.python.org/packages/source/a/${PN}/${P}.tar.gz"
+SRC_URI="mirror://pypi/a/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"

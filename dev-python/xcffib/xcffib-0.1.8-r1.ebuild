@@ -12,21 +12,20 @@ DESCRIPTION="A drop-in replacement for xpyb based on cffi"
 HOMEPAGE="https://github.com/tych0/xcffib"
 SRC_URI="https://github.com/tych0/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="Apapche-2.0"
+LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
 
 RDEPEND="${PYTHON_DEPS}
-         dev-haskell/xcffibgen:=
-         dev-python/cffi[${PYTHON_USEDEP}]
-         dev-python/six[${PYTHON_USEDEP}]
-         x11-proto/xcb-proto:="
+dev-haskell/xcffibgen:=
+dev-python/cffi[${PYTHON_USEDEP}]
+dev-python/six[${PYTHON_USEDEP}]
+x11-proto/xcb-proto:="
 DEPEND="${RDEPEND}
-         dev-python/autopep8[${PYTHON_USEDEP}]
-         sys-process/parallel
-         test? ( dev-python/flake8[${PYTHON_USEDEP}]
-                 dev-python/nose[${PYTHON_USEDEP}] )
+dev-python/autopep8[${PYTHON_USEDEP}]
+sys-process/parallel
+test? ( dev-python/flake8[${PYTHON_USEDEP}] dev-python/nose[${PYTHON_USEDEP}] )
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-separate-haskell-package.patch )

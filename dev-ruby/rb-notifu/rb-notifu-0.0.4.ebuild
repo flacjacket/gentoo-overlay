@@ -17,7 +17,7 @@ inherit ruby-fakegem
 DESCRIPTION="Notification system for windows. Trying to be Growl. Ruby wrapper around notifu "
 HOMEPAGE="http://rubygems.org/gems/rb-notifu"
 
-LICENSE=""
+LICENSE="Unlicense"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""

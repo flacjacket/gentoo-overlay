@@ -17,7 +17,7 @@ inherit ruby-fakegem
 DESCRIPTION="Linkify issue numbers (#123) and github users (@gregbell) in markdown changelogs"
 HOMEPAGE="http://rubygems.org/gems/pimpmychangelog"
 
-LICENSE=""
+LICENSE="Unlicense"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
