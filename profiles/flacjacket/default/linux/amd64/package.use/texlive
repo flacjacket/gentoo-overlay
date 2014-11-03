@@ -1,2 +1,2 @@
-app-text/texlive epspdf extra graphics pstricks publishers science
+app-text/texlive epspdf extra graphics metapost pstricks publishers science
 media-libs/gd fontconfig
