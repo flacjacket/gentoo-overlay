@@ -3,7 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/x11-wm/qtile/qtile-9999.ebuild,v 1.8 2014/04/04 08:02:17 radhermit Exp $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7,3_3,3_4} pypy )
+PYTHON_COMPAT=( python{2_6,2_7,3_3,3_4} pypy{,3} )
 DISTUTILS_SINGLE_IMPL=1
 
 inherit distutils-r1 virtualx
