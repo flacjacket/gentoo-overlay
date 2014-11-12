@@ -2,4 +2,5 @@ dev-lang/python sqlite
 dev-python/ipython matplotlib nbconvert notebook
 dev-python/numpy lapack
 dev-python/pypy sqlite
+dev-python/pypy3 sqlite
 media-libs/alsa-lib alisp
