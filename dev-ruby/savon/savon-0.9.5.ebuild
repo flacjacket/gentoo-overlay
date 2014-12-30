@@ -32,7 +32,7 @@ ruby_add_rdepend "
 	>=dev-ruby/nokogiri-1.4.0
 	>=dev-ruby/nori-1.0
 	<dev-ruby/nori-2
-	<=dev-ruby/wasabi-1.0
+	>=dev-ruby/wasabi-1.0
 	<dev-ruby/wasabi-2
 "
 
