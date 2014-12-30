@@ -23,16 +23,17 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 ruby_add_rdepend "
-	=dev-ruby/gssapi-1.0*
+	>=dev-ruby/gssapi-1.0.0
+	<dev-ruby/gssapi-1.1
 	>=dev-ruby/httpclient-2.2.0.2
-	=dev-ruby/httpclient-2*
+	<dev-ruby/httpclient-3
 	>=dev-ruby/logging-1.6.1
-	=dev-ruby/logging-1*
-	=dev-ruby/nokogiri-1*
+	<dev-ruby/logging-2
 	>=dev-ruby/nokogiri-1.5
-	=dev-ruby/rubyntlm-0.1*
+	<dev-ruby/nokogiri-2
 	>=dev-ruby/rubyntlm-0.1.1
+	<dev-ruby/rubyntlm-0.2
 	=dev-ruby/savon-0.9.5
-	=dev-ruby/uuidtools-2.1*
 	>=dev-ruby/uuidtools-2.1.2
+	<dev-ruby/uuidtools-2.2
 "

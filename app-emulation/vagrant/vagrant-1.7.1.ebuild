@@ -31,24 +31,31 @@ RDEPEND="${RDEPEND}
 
 ruby_add_rdepend "
 	>=dev-ruby/bundler-1.5.2
-	<dev-ruby/bundler-1.7
-	=dev-ruby/childprocess-0.5*
-	=dev-ruby/erubis-2.7*
-	=dev-ruby/hashicorp-checkpoint-0.1*
+	<dev-ruby/bundler-1.8
+	>=dev-ruby/childprocess-0.5.0
+	<dev-ruby/childprocess-0.6
+	>=dev-ruby/erubis-2.7.0
+	<dev-ruby/erubis-2.8
 	>=dev-ruby/hashicorp-checkpoint-0.1.1
+	<dev-ruby/hashicorp-checkpoint-0.2
 	dev-ruby/i18n:0.6
-	=dev-ruby/listen-2.7*
-	>=dev-ruby/listen-2.7.1
+	>=dev-ruby/listen-2.7.11
+	<dev-ruby/listen-2.8
 	>=dev-ruby/log4r-1.1.9
 	<dev-ruby/log4r-1.1.11
 	>=dev-ruby/net-ssh-2.6.6
 	<dev-ruby/net-ssh-2.10.0
-	=dev-ruby/net-scp-1.1*
+	>=dev-ruby/net-scp-1.1.0
+	<dev-ruby/net-scp-1.2
+	>=dev-ruby/net-sftp-2.1
+	<dev-ruby/net-sftp-3
 	=dev-ruby/nokogiri-1.6.3.1
-	=dev-ruby/rb-kqueue-0.2*
-	=dev-ruby/wdm-0.1*
-	=dev-ruby/winrm-1.1*
+	>=dev-ruby/rb-kqueue-0.2.0
+	<dev-ruby/rb-kqueue-0.3
+	>=dev-ruby/wdm-0.1.0
+	<dev-ruby/wdm-0.2
 	>=dev-ruby/winrm-1.1.3
+	<dev-ruby/winrm-1.2
 "
 
 ruby_add_bdepend "
