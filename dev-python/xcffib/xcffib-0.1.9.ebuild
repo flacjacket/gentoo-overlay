@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} pypy{,3} )
+PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} pypy pypy3 )
 
 inherit distutils-r1
 
@@ -23,7 +23,6 @@ dev-python/cffi[${PYTHON_USEDEP}]
 dev-python/six[${PYTHON_USEDEP}]
 x11-proto/xcb-proto:="
 DEPEND="${RDEPEND}
-dev-python/autopep8[${PYTHON_USEDEP}]
 sys-process/parallel
 test? ( dev-python/flake8[${PYTHON_USEDEP}] dev-python/nose[${PYTHON_USEDEP}] )
 "
