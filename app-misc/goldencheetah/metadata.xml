@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<use>
-  <flag name='qwt'>Enable 3d platting with qwtplot3d</flag>
-</use>
+	<use>
+		<flag name='qwt'>Enable 3d platting with qwtplot3d</flag>
+	</use>
+	<maintainer>
+		<email>sean.v.775@gmail.com</email>
+		<name>Sean Vig</name>
+	</maintainer>
 </pkgmetadata>
