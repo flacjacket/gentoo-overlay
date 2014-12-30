@@ -5,4 +5,6 @@ dev-libs
 dev-python
 dev-ruby
 media-plugins
+sys-apps
 x11-misc
+x11-wm
