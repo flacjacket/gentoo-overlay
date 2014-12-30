@@ -20,12 +20,3 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
-
-ruby_add_bdepend "
-	dev-ruby/guard-rspec
-	dev-ruby/guard-shell
-	dev-ruby/pimpmychangelog
-	dev-ruby/rake-compiler
-	dev-ruby/rb-notifu
-	dev-ruby/rb-readline
-"
