@@ -20,16 +20,17 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="debug +udev -consolekit perl +python +usbnet-headers"
 
-DEPEND="virtual/libusb:0
-		dev-libs/hidapi
-		dev-libs/libzip
-		udev? ( virtual/udev )
-		consolekit? ( sys-auth/consolekit )
-		python? ( ${PYTHON_DEPS} )
-		perl? ( virtual/perl-Module-Build
-				dev-lang/swig )
+RDEPEND="virtual/libusb:0
+dev-libs/hidapi
+dev-libs/libzip
+udev? ( virtual/udev )
+consolekit? ( sys-auth/consolekit )
+python? ( ${PYTHON_DEPS} )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${DEPEND}
+perl? ( virtual/perl-Module-Build
+	dev-lang/swig )
+"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 S="${WORKDIR}/${MY_P}/${PN}"

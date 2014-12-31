@@ -16,5 +16,5 @@ HOMEPAGE="https://rubygems.org/gems/rubyntlm"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64"
 IUSE=""

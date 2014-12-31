@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} pypy pypy3 )
+PYTHON_COMPAT=( python{2_7,3_3,3_4} pypy pypy3 )
 
 inherit distutils-r1
 
@@ -24,7 +24,7 @@ dev-python/six[${PYTHON_USEDEP}]
 x11-proto/xcb-proto:="
 DEPEND="${RDEPEND}
 sys-process/parallel
-test? ( dev-python/flake8[${PYTHON_USEDEP}] dev-python/nose[${PYTHON_USEDEP}] )
+test? ( dev-python/nose[${PYTHON_USEDEP}] )
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-separate-haskell-package.patch )

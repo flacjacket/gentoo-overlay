@@ -19,7 +19,7 @@ HOMEPAGE="http://rubygems.org/gems/winrm"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64"
 IUSE=""
 
 ruby_add_rdepend "

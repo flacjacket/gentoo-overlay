@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/qtile/qtile-9999.ebuild,v 1.8 2014/04/04 08:02:17 radhermit Exp $
+# $Header: $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7,3_3,3_4} pypy{,3} )
+PYTHON_COMPAT=( python{2_7,3_3,3_4} pypy pypy3 )
 DISTUTILS_SINGLE_IMPL=1
 
 inherit distutils-r1 virtualx
@@ -13,7 +13,6 @@ if [[ ${PV} == 9999* ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/qtile/qtile/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="A full-featured, hackable tiling window manager written in Python"

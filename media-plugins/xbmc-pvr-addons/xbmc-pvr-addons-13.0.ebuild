@@ -15,7 +15,7 @@ DESCRIPTION="XBMC addon: add VDR (http://www.cadsoft.de/vdr) as a TV/PVR Backend
 HOMEPAGE="https://github.com/opdenkamp/xbmc-pvr-addons"
 SRC_URI="https://github.com/opdenkamp/xbmc-pvr-addons/archive/${MY_PV}.tar.gz"
 
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="~amd64"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="+mythtv"

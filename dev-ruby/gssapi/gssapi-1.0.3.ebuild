@@ -17,7 +17,7 @@ HOMEPAGE="http://rubygems.org/gems/gssapi"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64"
 IUSE=""
 
 ruby_add_rdepend ">=dev-ruby/ffi-1.0.1"
