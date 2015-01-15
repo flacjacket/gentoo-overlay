@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 IUSE="test"
 
 RDEPEND="${PYTHON_DEPS}
-dev-haskell/xcffibgen:=
+>=dev-haskell/xcffibgen-${PV}:=
 dev-python/cffi[${PYTHON_USEDEP}]
 dev-python/six[${PYTHON_USEDEP}]
 x11-proto/xcb-proto:="
