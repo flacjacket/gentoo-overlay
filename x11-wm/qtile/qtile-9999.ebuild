@@ -25,7 +25,7 @@ IUSE="doc test"
 
 RDEPEND=">=dev-python/cairocffi-0.6[${PYTHON_USEDEP}]
 	>=dev-python/six-1.4.1[${PYTHON_USEDEP}]
-	>=dev-python/xcffib-0.1.10[${PYTHON_USEDEP}]
+	>=dev-python/xcffib-0.1.11[${PYTHON_USEDEP}]
 	virtual/python-asyncio[${PYTHON_USEDEP}]"
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
