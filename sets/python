@@ -5,7 +5,10 @@ dev-python/ipython
 dev-python/nose
 dev-python/numpy
 dev-python/pandas
+dev-pythen/pytest-cov
 dev-python/sphinx
 dev-python/sympy
+dev-python/twine
 dev-python/virtualenvwrapper
+dev-python/wheel
 sci-libs/scipy
