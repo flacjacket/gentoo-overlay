@@ -5,7 +5,7 @@ dev-python/ipython
 dev-python/nose
 dev-python/numpy
 dev-python/pandas
-dev-pythen/pytest-cov
+dev-python/pytest-cov
 dev-python/sphinx
 dev-python/sympy
 dev-python/twine
