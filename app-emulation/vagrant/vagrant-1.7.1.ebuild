@@ -52,6 +52,7 @@ ruby_add_rdepend "
 	=dev-ruby/nokogiri-1.6.3.1
 	>=dev-ruby/rb-kqueue-0.2.0
 	<dev-ruby/rb-kqueue-0.3
+	dev-ruby/rest-client
 	>=dev-ruby/wdm-0.1.0
 	<dev-ruby/wdm-0.2
 	>=dev-ruby/winrm-1.1.3
