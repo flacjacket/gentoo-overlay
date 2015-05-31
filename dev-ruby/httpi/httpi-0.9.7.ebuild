@@ -18,7 +18,7 @@ DESCRIPTION="Common interface for Ruby's HTTP libraries."
 HOMEPAGE="http://rubygems.org/gems/httpi"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0.9"
 KEYWORDS="~amd64"
 IUSE=""
 

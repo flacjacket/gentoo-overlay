@@ -23,17 +23,13 @@ KEYWORDS="~amd64"
 IUSE=""
 
 ruby_add_rdepend "
-	>=dev-ruby/akami-1.0
-	<dev-ruby/akami-2
+	dev-ruby/akami:1
 	>=dev-ruby/builder-2.1.2:*
 	>=dev-ruby/gyoku-0.4.0
-	>=dev-ruby/httpi-0.9
-	<dev-ruby/httpi-1
+	dev-ruby/httpi:0.9
 	>=dev-ruby/nokogiri-1.4.0
-	>=dev-ruby/nori-1.0
-	<dev-ruby/nori-2
-	>=dev-ruby/wasabi-1.0
-	<dev-ruby/wasabi-2
+	dev-ruby/nori:1
+	dev-ruby/wasabi:1
 "
 
 ruby_add_bdepend "

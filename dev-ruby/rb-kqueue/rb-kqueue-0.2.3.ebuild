@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,7 +18,7 @@ DESCRIPTION="This is a simple wrapper over the kqueue BSD event notification int
 HOMEPAGE="http://rubygems.org/gems/rb-kqueue"
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="2"
 KEYWORDS="~amd64"
 IUSE=""
 

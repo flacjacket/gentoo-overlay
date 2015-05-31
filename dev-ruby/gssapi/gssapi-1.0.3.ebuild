@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,7 +16,7 @@ DESCRIPTION="A FFI wrapper around the system GSSAPI library"
 HOMEPAGE="http://rubygems.org/gems/gssapi"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="1.0"
 KEYWORDS="~amd64"
 IUSE=""
 

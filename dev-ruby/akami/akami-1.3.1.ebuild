@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,7 +18,7 @@ DESCRIPTION="Building Web Service Security"
 HOMEPAGE="http://rubygems.org/gems/akami"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="1"
 KEYWORDS="~amd64"
 IUSE=""
 

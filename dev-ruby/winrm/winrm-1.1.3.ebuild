@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,22 +18,16 @@ DESCRIPTION="Ruby library for Windows Remote Management"
 HOMEPAGE="http://rubygems.org/gems/winrm"
 
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="1.1"
 KEYWORDS="~amd64"
 IUSE=""
 
 ruby_add_rdepend "
-	>=dev-ruby/gssapi-1.0.0
-	<dev-ruby/gssapi-1.1
-	>=dev-ruby/httpclient-2.2.0.2
+	dev-ruby/gssapi:1.0
 	<dev-ruby/httpclient-3
-	>=dev-ruby/logging-1.6.1
 	<dev-ruby/logging-2
-	>=dev-ruby/nokogiri-1.5
 	<dev-ruby/nokogiri-2
-	>=dev-ruby/rubyntlm-0.1.1
 	<dev-ruby/rubyntlm-0.2
 	=dev-ruby/savon-0.9.5
-	>=dev-ruby/uuidtools-2.1.2
 	<dev-ruby/uuidtools-2.2
 "
