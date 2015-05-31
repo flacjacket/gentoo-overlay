@@ -19,7 +19,7 @@ IUSE="test"
 
 RDEPEND="${PYTHON_DEPS}
 >=dev-haskell/xcffibgen-${PV}:=
-dev-python/cffi[${PYTHON_USEDEP}]
+>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]
 dev-python/six[${PYTHON_USEDEP}]
 x11-proto/xcb-proto:="
 DEPEND="${RDEPEND}
