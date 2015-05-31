@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -25,7 +25,7 @@ IUSE=""
 ruby_add_rdepend "
 	>=dev-ruby/akami-1.0
 	<dev-ruby/akami-2
-	>=dev-ruby/builder-2.1.2
+	>=dev-ruby/builder-2.1.2:*
 	>=dev-ruby/gyoku-0.4.0
 	>=dev-ruby/httpi-0.9
 	<dev-ruby/httpi-1

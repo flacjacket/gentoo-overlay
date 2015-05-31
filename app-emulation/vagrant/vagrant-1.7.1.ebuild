@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -39,8 +39,8 @@ ruby_add_rdepend "
 	>=dev-ruby/hashicorp-checkpoint-0.1.1
 	<dev-ruby/hashicorp-checkpoint-0.2
 	dev-ruby/i18n:0.6
-	>=dev-ruby/listen-2.7.11
-	<dev-ruby/listen-2.8
+	>=dev-ruby/listen-2.7.11:2
+	<dev-ruby/listen-2.8:2
 	>=dev-ruby/log4r-1.1.9
 	<dev-ruby/log4r-1.1.11
 	>=dev-ruby/net-ssh-2.6.6
