@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_3,3_4} pypy )
+PYTHON_COMPAT=( python{2_7,3_3,3_4} pypy pypy3 )
 
 inherit distutils-r1
 
@@ -19,7 +19,9 @@ IUSE="test"
 
 RDEPEND="${PYTHON_DEPS}
 >=dev-haskell/xcffibgen-${PV}:=
->=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]
+$(python_gen_cond_dep '>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]' 'python*')
+$(python_gen_cond_dep 'virtual/pypy' pypy)
+$(python_gen_cond_dep 'virtual/pypy3' pypy3)
 dev-python/six[${PYTHON_USEDEP}]
 x11-proto/xcb-proto:="
 DEPEND="${RDEPEND}
