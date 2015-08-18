@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer>
+    <email>sean.v.775@gmail.com</email>
+    <name>Sean Vig</name>
+  </maintainer>
+  <use>
+    <flag name="matplotlib">Add support for <pkg>dev-python/matplotlib</pkg></flag>
+    <flag name="mongodb">Enable support for MongoDB via <pkg>dev-python/pymongo</pkg></flag>
+    <flag name="octave">Enable octave bridge via <pkg>dev-python/oct2py</pkg></flag>
+  </use>
+</pkgmetadata>
