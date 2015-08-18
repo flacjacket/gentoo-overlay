@@ -1,5 +1,0 @@
-dev-libs/DirectFB drmkms dynload multicore fbcon
-media-libs/libsdl directfb fbcon
-media-libs/mesa gbm
-sys-apps/qingy directfb -gpm -consolekit opensslcrypt
-x11-libs/libdrm libkms

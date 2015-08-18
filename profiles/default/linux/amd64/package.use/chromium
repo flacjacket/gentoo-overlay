@@ -1,5 +1,0 @@
-dev-java/oracle-jdk-bin nsplugin
-dev-libs/libxml2 icu
-dev-qt/qtwebkit icu
-media-libs/harfbuzz icu
-sys-libs/zlib minizip

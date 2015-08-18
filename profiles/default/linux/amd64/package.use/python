@@ -1,5 +1,5 @@
 dev-lang/python sqlite
-dev-python/ipython matplotlib nbconvert notebook
+dev-python/ipython matplotlib
 dev-python/numpy lapack
 dev-python/pypy sqlite
 dev-python/pypy3 sqlite
