@@ -43,7 +43,7 @@ RDEPEND="
 	media-libs/lcms:2
 	media-libs/libpng:0=
 	media-libs/libwebp:0=
-	virtual/jpeg
+	virtual/jpeg:0
 	>=x11-libs/cairo-1.11.3[gles2(-)?,opengl?]
 	>=x11-libs/libdrm-2.4.30
 	x11-libs/libxkbcommon
