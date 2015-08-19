@@ -18,6 +18,7 @@ KEYWORDS="~amd64"
 IUSE="test"
 
 RDEPEND="
+	>=app-text/pandoc-1.12.1
 	dev-python/jinja[${PYTHON_USEDEP}]
 	dev-python/jupyter_core[${PYTHON_USEDEP}]
 	dev-python/mistune[${PYTHON_USEDEP}]
