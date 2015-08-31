@@ -37,7 +37,7 @@ DEPEND="${RDEPEND}
 	)"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-no-entrypoints.patch
+	"${FILESDIR}"/${PN}-no-entrypoints.patch
 )
 
 python_prepare_all() {
