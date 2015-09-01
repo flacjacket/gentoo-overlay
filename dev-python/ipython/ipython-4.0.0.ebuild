@@ -105,4 +105,12 @@ python_install_all() {
 pkg_postinst() {
 	optfeature "sympyprinting" dev-python/sympy
 	optfeature "cythonmagic" dev-python/cython
+
+	elog "Since the IPython 4.0, only the IPython terminal console is"
+	elog "contained in the IPython package. The various sub-components and"
+	elog "frontends now fall under jupyter and can all be installed from the"
+	elog "dev-python/jupyter meta-package, or each component individually:"
+	elog "dev-python/nbconvert, dev-python/nbformat,"
+	elog "dev-python/jupyter_console, dev-python/notebook,"
+	elog "dev-python/qtconsole"
 }

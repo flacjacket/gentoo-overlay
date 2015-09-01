@@ -17,16 +17,16 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
 
-RDEPEND="${PYTHON_DEPS}
->=dev-haskell/xcffibgen-${PV}:=
-$(python_gen_cond_dep '>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]' 'python*')
-$(python_gen_cond_dep 'virtual/pypy' pypy)
-$(python_gen_cond_dep 'virtual/pypy3' pypy3)
-dev-python/six[${PYTHON_USEDEP}]
-x11-proto/xcb-proto:="
-DEPEND="${RDEPEND}
-sys-process/parallel
-test? ( dev-python/nose[${PYTHON_USEDEP}] )
+RDEPEND="
+	>=dev-haskell/xcffibgen-${PV}:=
+	$(python_gen_cond_dep '>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]' 'python*')
+	$(python_gen_cond_dep 'virtual/pypy' pypy)
+	$(python_gen_cond_dep 'virtual/pypy3' pypy3)
+	dev-python/six[${PYTHON_USEDEP}]
+	x11-proto/xcb-proto:="
+DEPEND="
+	sys-process/parallel
+	test? ( dev-python/nose[${PYTHON_USEDEP}] )
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-separate-haskell-package.patch )

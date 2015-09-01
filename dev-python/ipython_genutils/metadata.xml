@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>sean.v.775@gmail.com</email>
-		<name>Sean Vig</name>
-	</maintainer>
+  <longdescription lang="en">
+Pretend this doesn't exist. Nobody should use it.
+  </longdescription>
+  <upstream>
+    <remote-id type="pypi">ipython_genutils</remote-id>
+    <remote-id type="github">ipython/ipython_genutils</remote-id>
+  </upstream>
 </pkgmetadata>

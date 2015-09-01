@@ -15,7 +15,11 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="test"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
+RDEPEND=""
+DEPEND="test? ( dev-python/nose[${PYTHON_USEDEP}] )"
+
+python_test() {
+	nosetests -d -v || die "Tests fail with ${EPYTHON}"
+}

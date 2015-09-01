@@ -21,5 +21,12 @@ RDEPEND="
 	>=dev-python/ipython-4.0[${PYTHON_USEDEP}]
 	dev-python/jupyter_client[${PYTHON_USEDEP}]
 	dev-python/traitlets[${PYTHON_USEDEP}]"
-DEPEND="${RDEPEND}
-	test? ( $(python_gen_cond_dep 'dev-python/mock[${PYTHON_USEDEP}]' python2_7) )"
+DEPEND="
+	test? (
+		$(python_gen_cond_dep 'dev-python/mock[${PYTHON_USEDEP}]' python2_7)
+		dev-python/nose[${PYTHON_USEDEP}]
+	)"
+
+python_test() {
+	nosetests -d -v || die "Tests fail with ${EPYTHON}"
+}

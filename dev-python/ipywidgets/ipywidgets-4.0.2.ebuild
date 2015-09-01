@@ -22,8 +22,13 @@ RDEPEND="
 	dev-python/ipykernel[${PYTHON_USEDEP}]
 	dev-python/traitlets[${PYTHON_USEDEP}]
 	dev-python/notebook[${PYTHON_USEDEP}]"
-DEPEND="${RDEPEND}
+DEPEND="
 	test? (
 		$(python_gen_cond_dep 'dev-python/mock[${PYTHON_USEDEP}]' python2_7)
 		dev-python/nose[${PYTHON_USEDEP}]
 	)"
+
+python_test() {
+	# JS tests require casperjs, just run Python tests
+	nosetests -d -v || die "Tests fail with ${EPYTHON}"
+}
