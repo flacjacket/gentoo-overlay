@@ -21,3 +21,5 @@ DEPEND="
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/theano[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}"/${P}-do-install.patch )
