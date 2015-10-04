@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer>
+    <email>sean.v.775@gmail.com</email>
+    <name>Sean Vig</name>
+  </maintainer>
+  <use>
+    <flag name="phonon">Build audio support through the phonon library</flag>
+  </use>
+</pkgmetadata>
