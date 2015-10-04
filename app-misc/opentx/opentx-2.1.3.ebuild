@@ -13,10 +13,11 @@ SRC_URI="https://github.com/opentx/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+phonon"
+IUSE="+dfu +phonon"
 
 RDEPEND="
 	dev-libs/xerces-c
+	dfu? ( app-mobilephone/dfu-util )
 	phonon? ( media-libs/phonon )"
 DEPEND="${RDEPEND}
 	dev-python/PyQt4

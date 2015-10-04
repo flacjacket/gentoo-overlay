@@ -6,6 +6,7 @@
     <name>Sean Vig</name>
   </maintainer>
   <use>
+	<flag name="dfu">Support flashing bootloader via dfu-util</flag>
     <flag name="phonon">Build audio support through the phonon library</flag>
   </use>
 </pkgmetadata>
