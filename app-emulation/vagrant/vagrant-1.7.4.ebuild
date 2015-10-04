@@ -6,9 +6,10 @@ EAPI="5"
 USE_RUBY="ruby20"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
-RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
-RUBY_FAKEGEM_EXTRAINSTALL="keys plugins templates version.txt"
+RUBY_FAKEGEM_EXTRAINSTALL="contrib keys plugins templates version.txt"
 RUBY_FAKEGEM_TASK_DOC=""
+
+RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
 
 inherit ruby-fakegem
 
@@ -30,22 +31,21 @@ RDEPEND="${RDEPEND}
 	!x64-macos? ( || ( app-emulation/virtualbox app-emulation/virtualbox-bin ) )"
 
 ruby_add_rdepend "
-	<dev-ruby/bundler-1.8
+	<=dev-ruby/bundler-1.10.5
 	>=dev-ruby/childprocess-0.5.0
 	<dev-ruby/childprocess-0.6
 	<dev-ruby/erubis-2.8
 	dev-ruby/i18n:0.6
-	>=dev-ruby/listen-2.8:2
+	dev-ruby/listen:3
 	>=dev-ruby/hashicorp-checkpoint-0.1.1
 	<dev-ruby/hashicorp-checkpoint-0.2
 	<dev-ruby/log4r-1.1.11
 	<dev-ruby/net-ssh-2.10.0
 	dev-ruby/net-sftp:2
 	<dev-ruby/net-scp-1.2
-	dev-ruby/rb-kqueue:2
-	dev-ruby/rest-client
-	=dev-ruby/wdm-0.1.0
-	dev-ruby/winrm:1.1
+	<dev-ruby/rest-client-2.0
+	<dev-ruby/winrm-1.4
+	<dev-ruby/winrm-fs-0.3
 	=dev-ruby/nokogiri-1.6.3.1
 "
 
@@ -55,8 +55,9 @@ ruby_add_bdepend "
 "
 
 all_ruby_prepare() {
-	# remove bundler support ????
-	sed -i '/[Bb]undler/d' Rakefile || die
+	sed -e '/"rb-kqueue"/d;/"wdm"/d' -i ${RUBY_FAKEGEM_GEMSPEC} || die
+	sed -e 's/listener.stop if listener.state != :stopped/listener.stop if listener.listen?/' \
+		-i plugins/synced_folders/rsync/command/rsync_auto.rb || die
 	rm Gemfile || die
 
 	epatch "${FILESDIR}"/${PN}-1.6.3-no-warning.patch
