@@ -24,10 +24,10 @@ IUSE=""
 
 ruby_add_rdepend "
 	dev-ruby/gssapi:1.0
+	<dev-ruby/gssapi-2.0
 	<dev-ruby/httpclient-3
 	<dev-ruby/logging-2
-	<dev-ruby/nokogiri-2
+	<dev-ruby/nori-3
 	<dev-ruby/rubyntlm-0.2
-	=dev-ruby/savon-0.9.5
 	<dev-ruby/uuidtools-2.2
 "
