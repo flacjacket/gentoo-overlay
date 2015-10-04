@@ -17,6 +17,7 @@ IUSE="+dfu +phonon"
 
 RDEPEND="
 	dev-libs/xerces-c
+	media-libs/libsdl
 	dfu? ( app-mobilephone/dfu-util )
 	phonon? ( media-libs/phonon )"
 DEPEND="${RDEPEND}
