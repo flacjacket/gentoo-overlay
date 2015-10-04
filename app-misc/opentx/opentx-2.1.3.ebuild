@@ -26,10 +26,3 @@ DEPEND="${RDEPEND}
 	dev-cpp/xsd"
 
 CMAKE_USE_DIR="${S}/companion/src"
-
-src_prepare() {
-	sed -e 's/env python/env python2.7/' -i radio/util/*.py || die
-	sed -e 's/@python/@python2.7/' -i radio/src/Makefile || die
-
-	cmake-utils_src_prepare
-}
