@@ -25,6 +25,7 @@ IUSE=""
 ruby_add_rdepend "
 	dev-ruby/gssapi:1.0
 	<dev-ruby/gssapi-2.0
+	<dev-ruby/gyoku-2.0
 	<dev-ruby/httpclient-3
 	<dev-ruby/logging-2
 	<dev-ruby/nori-3
