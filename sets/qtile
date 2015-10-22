@@ -1,3 +1,5 @@
+dev-python/netifaces
+dev-python/wifi
 x11-misc/sddm
 x11-terms/rxvt-unicode
 x11-misc/xtrace
