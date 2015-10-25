@@ -17,5 +17,5 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND=""
+DEPEND="dev-python/pbkdf2[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
