@@ -37,15 +37,13 @@ src_install() {
 	doexe "${FILESDIR}/blheli-suite"
 
 	insinto "${dest}"
-	insopts -o root -g users -m 0664
-	diropts -o root -g users -m 0775
 	doins "BLHeliAtmelHex.dll" "BLHeliSilabsHex.dll" "BLHeliSuite.exe" "SiUtil.dll" "USBHID.dll"
-	doins -r "BLHeli_HexFiles"
-	doins -r "Interfaces"
-	doins -r "Manuals"
-	doins -r "Screenshots"
+
+	doins -r "BLHeli_HexFiles" "Interfaces" "Manuals" "Screenshots" "SimonK_HexFiles"
+
+	diropts -o root -g users -m 0775
 	doins -r "Settings"
-	doins -r "SimonK_HexFiles"
+
 }
 
 pkg_postinst() {
