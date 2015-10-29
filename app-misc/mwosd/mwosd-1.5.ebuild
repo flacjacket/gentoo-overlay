@@ -19,7 +19,7 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/scarab-osd-R1.5"
 
 src_install() {
-	local dest_gui="/opt/${PN}-gui-${PV}" dest="/opt/${P}"
+	local dest_gui="/opt/${PN}-gui-${PV}" dest="/opt/MW_OSD"
 
 	cd MW_OSD
 	insinto "${dest}"
