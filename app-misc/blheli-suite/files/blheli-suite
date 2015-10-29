@@ -1,0 +1,2 @@
+#!/bin/sh
+WINEPREFIX=/opt/blheli-suite-14.2.0.0-wineprefix wine "D:/BLHeliSuite.exe"
