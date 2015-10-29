@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /opt/mwosd-gui-1.5
+./MW_OSD_GUI
