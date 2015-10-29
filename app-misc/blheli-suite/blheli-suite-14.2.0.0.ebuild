@@ -53,7 +53,7 @@ pkg_postinst() {
 	export WINEPREFIX="/opt/${P}-wineprefix"
 
 	[[ -d "${WINEPREFIX}" ]] && chown root:root "${WINEPREFIX}" -R
-	DISPLAY= regedit "${FILESDIR}/blheli-pdf-open.reg" || die
+	DISPLAY= regedit "${FILESDIR}/blheli-pdf-open.reg" 2> /dev/null || die
 
 	# Setup com ports
 	ln -sf /dev/ttyUSB0 "${WINEPREFIX}/dosdevices/com1"
