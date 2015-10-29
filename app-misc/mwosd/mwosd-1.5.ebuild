@@ -21,11 +21,10 @@ S="${WORKDIR}/scarab-osd-R1.5"
 src_install() {
 	local dest_gui="/opt/${PN}-gui-${PV}" dest="/opt/MW_OSD"
 
-	cd MW_OSD
 	insinto "${dest}"
-	doins Config.h Credits.txt Def.h fontD.h fontL.h GlobalVariables.h GPS.ino Max7456.ino MW_OSD.ino Screen.ino Serial.ino symbols.h
+	doins MW_OSD/{Credits.txt,Def.h,fontD.h,fontL.h,GlobalVariables.h,GPS.ino,Max7456.ino,MW_OSD.ino,Screen.ino,Serial.ino,symbols.h}
 
-	cd ../MW_OSD_GUI/application.linux64 || die
+	cd MW_OSD_GUI/application.linux64 || die
 	insinto "${dest_gui}"
 	doins -r "data" "lib" "source"
 	exeinto "${dest_gui}"
@@ -34,13 +33,15 @@ src_install() {
 	exeinto "/opt/bin"
 	doexe "${FILESDIR}/mwosd-gui"
 
-	# Make sure permissions are ok on everything
-	# Need write access to ./data (to add gui.cfg)
-	diropts -o root -g users -m 775
-	dodir "${dest_gui}/data"
-
-	# Also need write access to hudlayout.xml
+	# Make sure write permissions are ok on everything
+	insopts -o root -g users -m 0664
+	# Also need write access to hudlayout.xml and gui.cfg
 	insinto "${dest_gui}/data"
-	insopts -o root -g users -m 664
 	doins "data/hudlayout.xml"
+	doins "${FILESDIR}/gui.cfg"
+
+	# Give write access to Config.h
+	insinto "${dest}"
+	cd ../..
+	doins MW_OSD/Config.h
 }
