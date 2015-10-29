@@ -20,9 +20,7 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE=""
 
-PATCHES=( "${FILESDIR}"/${P}-utf8-version.patch )
-
-RDEPEND=">=dev-haskell/monads-tf-0.1:=[profile?] <dev-haskell/monads-tf-0.2:=[profile?]
+RDEPEND="<dev-haskell/monads-tf-0.2:=[profile?]
 	>=dev-haskell/transformers-0.3:=[profile?] <dev-haskell/transformers-0.5:=[profile?]
 	>=dev-haskell/utf8-string-1:=[profile?] <dev-haskell/utf8-string-2:=[profile?]
 	>=dev-lang/ghc-7.6.1:=
