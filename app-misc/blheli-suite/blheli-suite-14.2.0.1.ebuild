@@ -48,7 +48,7 @@ src_install() {
 
 pkg_postinst() {
 	local dest="/opt/${P}"
-	export WINEPREFIX="/opt/${P}-wineprefix"
+	export WINEPREFIX="/opt/${PN}-wineprefix"
 
 	[[ -d "${WINEPREFIX}" ]] && chown root:root "${WINEPREFIX}" -R
 	DISPLAY= regedit "${FILESDIR}/blheli-pdf-open.reg" 2> /dev/null || die
