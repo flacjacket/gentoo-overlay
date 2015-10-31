@@ -172,9 +172,8 @@ src_test() {
 
 src_install() {
 	einfo "Installing PyPy ..."
-	into "/usr/$(get_libdir)/pypy"
-	doins -r include lib_pypy lib-python pypy-c
-	dolib libpypy-c.so
+	insinto "/usr/$(get_libdir)/pypy"
+	doins -r include lib_pypy lib-python pypy-c libpypy-c.so
 	fperms a+x ${INSDESTTREE}/pypy-c ${INSDESTTREE}/libpypy-c.so
 	pax-mark m "${ED%/}${INSDESTTREE}/pypy-c" "${ED%/}${INSDESTTREE}/libpypy-c.so"
 	dosym ../$(get_libdir)/pypy/pypy-c /usr/bin/pypy
