@@ -161,7 +161,6 @@ src_compile() {
 	"${@}" || die "compile error"
 
 	use doc && emake -C pypy/doc/ html
-	pax-mark m "${ED%/}${INSDESTTREE}/pypy-c"
 }
 
 src_test() {
@@ -173,8 +172,9 @@ src_test() {
 
 src_install() {
 	einfo "Installing PyPy ..."
-	insinto "/usr/$(get_libdir)/pypy"
-	doins -r include lib_pypy lib-python pypy-c libpypy-c.so
+	into "/usr/$(get_libdir)/pypy"
+	doins -r include lib_pypy lib-python pypy-c
+	dolib libpypy-c.so
 	fperms a+x ${INSDESTTREE}/pypy-c ${INSDESTTREE}/libpypy-c.so
 	pax-mark m "${ED%/}${INSDESTTREE}/pypy-c" "${ED%/}${INSDESTTREE}/libpypy-c.so"
 	dosym ../$(get_libdir)/pypy/pypy-c /usr/bin/pypy
@@ -213,14 +213,6 @@ src_install() {
 
 	# Generate cffi modules
 	# Please keep in sync with pypy/tool/release/package.py!
-#cffi_build_scripts = {
-#    "sqlite3": "_sqlite3_build.py",
-#    "audioop": "_audioop_build.py",
-#    "tk": "_tkinter/tklib_build.py",
-#    "curses": "_curses_build.py" if sys.platform != "win32" else None,
-#    "syslog": "_syslog_build.py" if sys.platform != "win32" else None,
-#    "gdbm": "_gdbm_build.py"  if sys.platform != "win32" else None,
-#    "pwdgrp": "_pwdgrp_build.py" if sys.platform != "win32" else None,
 	cffi_targets=( audioop syslog pwdgrp )
 	use gdbm && cffi_targets+=( gdbm )
 	use ncurses && cffi_targets+=( curses )
