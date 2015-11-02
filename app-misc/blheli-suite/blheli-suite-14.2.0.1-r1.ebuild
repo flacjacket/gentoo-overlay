@@ -55,7 +55,7 @@ pkg_postinst() {
 
 	# Setup com ports
 	ln -sf /dev/ttyUSB0 "${WINEPREFIX}/dosdevices/com1"
-	ln -sf /dev/ttyUSB1 "${WINEPREFIX}/dosdevices/com2"
+	ln -sf /dev/ttyACM0 "${WINEPREFIX}/dosdevices/com2"
 
 	[[ -d "${WINEPREFIX}/dosdevices/d:" ]] && rm "${WINEPREFIX}/dosdevices/d:"
 	ln -sf ../../${P} "${WINEPREFIX}/dosdevices/d:"
