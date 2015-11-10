@@ -17,5 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="dev-python/pbkdf2[${PYTHON_USEDEP}]"
+DEPEND="
+	dev-python/pbkdf2[${PYTHON_USEDEP}]
+	net-wireless/wireless-tools"
 RDEPEND="${DEPEND}"
