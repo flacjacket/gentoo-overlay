@@ -6,7 +6,7 @@ EAPI=5
 
 DESCRIPTION="A Multipurpose Open Source OSD"
 HOMEPAGE="http://www.mwosd.com/"
-SRC_URI="https://github.com/ShikOfTheRa/scarab-osd/archive/R${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ShikOfTheRa/scarab-osd/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="public-domain"
 SLOT="0"
