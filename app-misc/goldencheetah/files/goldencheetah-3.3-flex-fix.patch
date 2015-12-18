@@ -1,0 +1,45 @@
+commit c6bc02a26c7e5eb20d874546bb28bb2857ad670d
+Author: Sean Vig <sean.v.775@gmail.com>
+Date:   Fri Dec 18 00:31:51 2015 -0600
+
+    Fix FLEX version checks for 2.6.0
+
+diff --git a/src/DataFilter.l b/src/DataFilter.l
+index dded882..588442d 100644
+--- a/src/DataFilter.l
++++ b/src/DataFilter.l
+@@ -100,7 +100,7 @@ int DataFiltercolumn = 1;
+ 
+ // Older versions of flex (prior to 2.5.9) do not have the destroy function
+ // Or We're not using GNU flex then we also won't have a destroy function
+-#if !defined(FLEX_SCANNER) || (YY_FLEX_SUBMINOR_VERSION < 9)
++#if !defined(FLEX_SCANNER) || (YY_FLEX_MINOR_VERSION < 6 && YY_FLEX_SUBMINOR_VERSION < 9)
+ int DataFilterlex_destroy(void) { return 0; }
+ #endif
+ 
+diff --git a/src/JsonRideFile.l b/src/JsonRideFile.l
+index 8253535..db9dab7 100644
+--- a/src/JsonRideFile.l
++++ b/src/JsonRideFile.l
+@@ -161,7 +161,7 @@ void JsonRideFilefree (void * ptr , yyscan_t /*scanner*/)
+ 
+ // Older versions of flex (prior to 2.5.9) do not have the destroy function
+ // Or We're not using GNU flex then we also won't have a destroy function
+-#if !defined(FLEX_SCANNER) || (YY_FLEX_SUBMINOR_VERSION < 9)
++#if !defined(FLEX_SCANNER) || (YY_FLEX_MINOR_VERSION < 6 && YY_FLEX_SUBMINOR_VERSION < 9)
+ int JsonRideFilelex_destroy(void*) { return 0; }
+ #endif
+ 
+diff --git a/src/RideDB.l b/src/RideDB.l
+index 963e8af..6d0fca6 100644
+--- a/src/RideDB.l
++++ b/src/RideDB.l
+@@ -114,7 +114,7 @@ void RideDBfree (void * ptr , yyscan_t /*scanner*/)
+ 
+ // Older versions of flex (prior to 2.5.9) do not have the destroy function
+ // Or We're not using GNU flex then we also won't have a destroy function
+-#if !defined(FLEX_SCANNER) || (YY_FLEX_SUBMINOR_VERSION < 9)
++#if !defined(FLEX_SCANNER) || (YY_FLEX_MINOR_VERSION < 6 && YY_FLEX_SUBMINOR_VERSION < 9)
+ int RideDBlex_destroy(void*) { return 0; }
+ #endif
+ 

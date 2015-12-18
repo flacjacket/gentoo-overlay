@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit qt4-r2
+inherit qmake-utils base
 
 MY_PN="GoldenCheetah"
 
@@ -17,15 +17,24 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+qwt"
 
-DEPEND="dev-qt/qtcore:4
+DEPEND="
+	dev-qt/qtconcurrent:5
+	dev-qt/qtmultimedia:5[widgets]
+	dev-qt/qtprintsupport:5
+	dev-qt/qtserialport:5
+	dev-qt/qtsvg:5
+	dev-qt/qttranslations:5
 	qwt? ( x11-libs/qwtplot3d )"
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}"/${P}-flex-fix.patch )
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_prepare() {
-	sed -e "s:#QMAKE_LRELEASE:QMAKE_LRELEASE:" \
-		-e "s:#QMAKE_CXXFLAGS:QMAKE_CXXFLAGS:" src/gcconfig.pri.in > src/gcconfig.pri || die
+	base_src_prepare
+
+	sed -e "s:#QMAKE_LRELEASE:QMAKE_LRELEASE:" src/gcconfig.pri.in > src/gcconfig.pri || die
 	sed -e "s:/usr/local/:/usr/:" qwt/qwtconfig.pri.in > qwt/qwtconfig.pri || die
 }
 
@@ -38,11 +47,11 @@ src_configure() {
 			-i src/gcconfig.pri || die
 	fi
 
-	eqmake4 -recursive
+	eqmake5
 }
 
 src_install() {
-	qt4-r2_src_install
+	emake DESTDIR="${D}" INSTALL_ROOT="${D}" install
 
 	dobin "src/GoldenCheetah"
 }
