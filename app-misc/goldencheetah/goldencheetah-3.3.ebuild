@@ -15,7 +15,7 @@ SRC_URI="https://github.com/GoldenCheetah/${MY_PN}/archive/V${PV}.tar.gz -> ${P}
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+qwt"
+IUSE=""
 
 DEPEND="
 	dev-qt/qtconcurrent:5
@@ -23,8 +23,7 @@ DEPEND="
 	dev-qt/qtprintsupport:5
 	dev-qt/qtserialport:5
 	dev-qt/qtsvg:5
-	dev-qt/qttranslations:5
-	qwt? ( x11-libs/qwtplot3d )"
+	dev-qt/qttranslations:5"
 RDEPEND="${DEPEND}"
 
 PATCHES=( "${FILESDIR}"/${P}-flex-fix.patch )
@@ -39,14 +38,6 @@ src_prepare() {
 }
 
 src_configure() {
-	if use qwt; then
-		sed -e "s:#QWT3D_INSTALL =:QWT3D_INSTALL = /usr:" \
-			-e "s:#QWT3D_INCLUDE =:QWT3D_INCLUDE = \$\${QWT3D_INSTALL}/include/qwtplot3d:" \
-			-e "s:#QWT3D_LIBS    =:QWT3D_LIBS    = \$\${QWT3D_INSTALL}/lib/libqwtplot3d.so:" \
-			-e "s:#DEFINES += GC_VIDEO_NONE:DEFINES += GC_VIDEO_NONE:" \
-			-i src/gcconfig.pri || die
-	fi
-
 	eqmake5
 }
 
