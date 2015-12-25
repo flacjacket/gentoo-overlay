@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit qmake-utils base
+inherit qmake-utils autotools-utils
 
 MY_PN="GoldenCheetah"
 
@@ -31,7 +31,7 @@ PATCHES=( "${FILESDIR}"/${P}-flex-fix.patch )
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_prepare() {
-	base_src_prepare
+	autotools-utils_src_prepare
 
 	sed -e "s:#QMAKE_LRELEASE:QMAKE_LRELEASE:" src/gcconfig.pri.in > src/gcconfig.pri || die
 	sed -e "s:/usr/local/:/usr/:" qwt/qwtconfig.pri.in > qwt/qwtconfig.pri || die
