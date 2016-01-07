@@ -18,7 +18,7 @@ DESCRIPTION="Ruby library for Windows Remote Management"
 HOMEPAGE="http://rubygems.org/gems/winrm"
 
 LICENSE="Apache-2.0"
-SLOT="1.3"
+SLOT="1.4"
 KEYWORDS="~amd64"
 IUSE=""
 
