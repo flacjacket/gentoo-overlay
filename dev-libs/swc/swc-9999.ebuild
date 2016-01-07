@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://github.com/michaelforney/swc.git"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="X"
+IUSE="libinput X"
 
 DEPEND="
 	dev-libs/wayland
