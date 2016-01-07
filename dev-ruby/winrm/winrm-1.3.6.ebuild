@@ -18,13 +18,13 @@ DESCRIPTION="Ruby library for Windows Remote Management"
 HOMEPAGE="http://rubygems.org/gems/winrm"
 
 LICENSE="Apache-2.0"
-SLOT="1.4"
+SLOT="1.3"
 KEYWORDS="~amd64"
 IUSE=""
 
 ruby_add_rdepend "
-	dev-ruby/gssapi:1.0
 	>=dev-ruby/gssapi-1.2
+	<dev-ruby/gssapi-2.0
 	<dev-ruby/gyoku-2.0
 	<dev-ruby/httpclient-3
 	<dev-ruby/logging-3

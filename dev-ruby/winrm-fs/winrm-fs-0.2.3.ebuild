@@ -30,7 +30,7 @@ ruby_add_rdepend "
 	dev-ruby/erubis
 	<dev-ruby/logging-2
 	dev-ruby/rubyzip:1
-	>=dev-ruby/winrm-1.3.0"
+	<dev-ruby/winrm-1.4"
 
 ruby_add_bdepend "
 	>=dev-ruby/rspec-3.2.0
