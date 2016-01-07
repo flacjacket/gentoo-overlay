@@ -32,8 +32,7 @@ RDEPEND="${RDEPEND}
 
 ruby_add_rdepend "
 	<=dev-ruby/bundler-1.10.5
-	>=dev-ruby/childprocess-0.5.0
-	<dev-ruby/childprocess-0.6
+	<dev-ruby/childprocess-0.6.0
 	<dev-ruby/erubis-2.8
 	dev-ruby/i18n:0.6
 	dev-ruby/listen:3
@@ -44,7 +43,7 @@ ruby_add_rdepend "
 	dev-ruby/net-sftp:2
 	<dev-ruby/net-scp-1.2
 	<dev-ruby/rest-client-2.0
-	<dev-ruby/winrm-1.4
+	<dev-ruby/winrm-2.0
 	<dev-ruby/winrm-fs-0.3
 	=dev-ruby/nokogiri-1.6.3.1
 "
