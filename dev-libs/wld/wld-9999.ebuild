@@ -43,3 +43,7 @@ src_configure() {
 		-e "/DRM_DRIVERS/s: intel nouveau:${DRIVERS}:" \
 		-i config.mk || die
 }
+
+src_install() {
+	emake PREFIX="${ED}/usr" install
+}
