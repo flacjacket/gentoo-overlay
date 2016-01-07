@@ -1,0 +1,101 @@
+diff --git a/bin/vagrant b/bin/vagrant
+index fce68c8..1039892 100755
+--- a/bin/vagrant
++++ b/bin/vagrant
+@@ -64,37 +64,6 @@ if argv.include?("--debug")
+   ENV["VAGRANT_LOG"] = "debug"
+ end
+ 
+-# Setup our dependencies by initializing Bundler. If we're using plugins,
+-# then also initialize the paths to the plugins.
+-require "bundler"
+-begin
+-  $vagrant_bundler_runtime = Bundler.setup(:default, :plugins)
+-rescue Bundler::GemNotFound
+-  $stderr.puts "Bundler, the underlying system used to manage Vagrant plugins,"
+-  $stderr.puts "is reporting that a plugin or its dependency can't be found."
+-  $stderr.puts "This is usually caused by manual tampering with the 'plugins.json'"
+-  $stderr.puts "file in the Vagrant home directory. To fix this error, please"
+-  $stderr.puts "remove that file and reinstall all your plugins using `vagrant"
+-  $stderr.puts "plugin install`."
+-rescue Bundler::VersionConflict => e
+-  $stderr.puts "Vagrant experienced a version conflict with some installed plugins!"
+-  $stderr.puts "This usually happens if you recently upgraded Vagrant. As part of the"
+-  $stderr.puts "upgrade process, some existing plugins are no longer compatible with"
+-  $stderr.puts "this version of Vagrant. The recommended way to fix this is to remove"
+-  $stderr.puts "your existing plugins and reinstall them one-by-one. To remove all"
+-  $stderr.puts "plugins:"
+-  $stderr.puts ""
+-  $stderr.puts "    rm -r ~/.vagrant.d/plugins.json ~/.vagrant.d/gems"
+-  $stderr.puts ""
+-  $stderr.puts "Note if you have an alternate VAGRANT_HOME environmental variable"
+-  $stderr.puts "set, the folders above will be in that directory rather than your"
+-  $stderr.puts "user's home directory."
+-  $stderr.puts ""
+-  $stderr.puts "The error message is shown below:\n\n"
+-  $stderr.puts e.message
+-  exit 1
+-end
+-
+ # Stdout/stderr should not buffer output
+ $stdout.sync = true
+ $stderr.sync = true
+@@ -103,13 +72,9 @@ env = nil
+ begin
+   require 'log4r'
+   require 'vagrant'
+-  require 'vagrant/bundler'
+   require 'vagrant/cli'
+   require 'vagrant/util/platform'
+ 
+-  # Schedule the cleanup of things
+-  at_exit(&Vagrant::Bundler.instance.method(:deinit))
+-
+   # Create a logger right away
+   logger = Log4r::Logger.new("vagrant::bin::vagrant")
+   logger.info("`vagrant` invoked: #{ARGV.inspect}")
+diff --git a/lib/vagrant.rb b/lib/vagrant.rb
+index a84bb1b..29d5037 100644
+--- a/lib/vagrant.rb
++++ b/lib/vagrant.rb
+@@ -1,12 +1,5 @@
+ require "vagrant/shared_helpers"
+ 
+-if Vagrant.plugins_enabled? && !defined?(Bundler)
+-  puts "It appears that Vagrant was not properly loaded. Specifically,"
+-  puts "the bundler context Vagrant requires was not setup. Please execute"
+-  puts "vagrant using only the `vagrant` executable."
+-  abort
+-end
+-
+ require 'rubygems'
+ require 'log4r'
+ 
+@@ -72,10 +65,6 @@ global_logger.info("RubyGems version: #{Gem::VERSION}")
+ ENV.each do |k, v|
+   global_logger.info("#{k}=#{v.inspect}") if k =~ /^VAGRANT_/
+ end
+-global_logger.info("Plugins:")
+-Bundler.definition.specs_for([:plugins]).each do |spec|
+-  global_logger.info("  - #{spec.name} = #{spec.version}")
+-end
+ 
+ 
+ # We need these components always so instead of an autoload we
+diff --git a/lib/vagrant/pre-rubygems.rb b/lib/vagrant/pre-rubygems.rb
+index 63b46f5..23e0ae6 100644
+--- a/lib/vagrant/pre-rubygems.rb
++++ b/lib/vagrant/pre-rubygems.rb
+@@ -16,12 +16,6 @@ if defined?(Bundler)
+   end
+ end
+ 
+-require_relative "bundler"
+-require_relative "plugin/manager"
+-
+-plugins = Vagrant::Plugin::Manager.instance.installed_plugins
+-Vagrant::Bundler.instance.init!(plugins)
+-
+ ENV["VAGRANT_INTERNAL_BUNDLERIZED"] = "1"
+ 
+ # If the VAGRANT_EXECUTABLE env is set, then we use that to point to a

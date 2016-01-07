@@ -31,7 +31,6 @@ RDEPEND="${RDEPEND}
 	!x64-macos? ( || ( app-emulation/virtualbox app-emulation/virtualbox-bin ) )"
 
 ruby_add_rdepend "
-	<=dev-ruby/bundler-1.10.6
 	<dev-ruby/childprocess-0.6.0
 	<dev-ruby/erubis-2.8
 	dev-ruby/i18n:0.7
@@ -54,13 +53,15 @@ ruby_add_bdepend "
 "
 
 all_ruby_prepare() {
-	sed -e '/"rb-kqueue"/d;/"wdm"/d' -i ${RUBY_FAKEGEM_GEMSPEC} || die
+	sed -e '/"rb-kqueue"/d;/"wdm"/d;/"bundler"/d' -i ${RUBY_FAKEGEM_GEMSPEC} || die
 	sed -e 's/listener.stop if listener.state != :stopped/listener.stop if listener.listen?/' \
 		-i plugins/synced_folders/rsync/command/rsync_auto.rb || die
+	sed -i '/[Bb]undler/d' Rakefile || die
 	rm Gemfile || die
 
 	epatch "${FILESDIR}"/${PN}-1.6.3-no-warning.patch
 	epatch "${FILESDIR}"/${PN}-1.6.3-rvm.patch
+	epatch "${FILESDIR}"/${PN}-1.8.1-bundler.patch
 }
 
 pkg_postinst() {
