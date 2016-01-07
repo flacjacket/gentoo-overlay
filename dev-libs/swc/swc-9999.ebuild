@@ -18,11 +18,14 @@ IUSE="X"
 DEPEND="
 	dev-libs/wayland
 	dev-libs/libevdev
-	dev-libs/libxkbcommon
 	dev-libs/wld
 	x11-libs/libdrm
+	x11-libs/libxkbcommon
 	x11-libs/pixman
-
+	libinput? (
+		dev-libs/libinput
+		virtual/udev
+	)
 	X? (
 		x11-libs/libxcb
 		x11-libs/xcb-util-wm
@@ -36,4 +39,8 @@ src_configure() {
 		-e "/ENABLE_STATIC/s:1:0:" \
 		-e "/CFLAGS/s:-pipe:${CFLAGS}:" \
 		-i config.mk || die
+
+	if ! use X; then
+		sed -e "/ENABLE_XWAYLAND/s:1:0:" -i config.mk || die
+	fi
 }
