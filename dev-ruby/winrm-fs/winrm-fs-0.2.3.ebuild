@@ -34,5 +34,4 @@ ruby_add_rdepend "
 
 ruby_add_bdepend "
 	>=dev-ruby/rspec-3.2.0
-	>=dev-ruby/rake-10.3.2
-	>=dev-ruby/rubocop-0.28.0"
+	>=dev-ruby/rake-10.3.2"
