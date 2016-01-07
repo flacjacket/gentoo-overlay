@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/michaelforney/wld.git"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 
 VIDEO_CARDS="intel nouveau"
 for card in ${VIDEO_CARDS}; do
