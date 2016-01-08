@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://github.com/michaelforney/swc.git"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="libinput X"
+IUSE="+libinput X"
 
 DEPEND="
 	dev-libs/wayland
@@ -42,5 +42,9 @@ src_configure() {
 
 	if ! use X; then
 		sed -e "/ENABLE_XWAYLAND/s:1:0:" -i config.mk || die
+	fi
+
+	if ! use libinput; then
+		sed -e "/ENABLE_LIBINPUT/s:1:0:" -i config.mk ||die
 	fi
 }
