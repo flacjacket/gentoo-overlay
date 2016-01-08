@@ -6,7 +6,6 @@
 		library and service found in modern linux systems.</longdescription>
 	<use>
 		<flag name="pygobject">Install PyGobject binding</flag>
-		<flag name="pyqt4">Install PyQt4 binding</flag>
 		<flag name="pyside">Install PySide binding</flag>
 	</use>
 	<upstream>

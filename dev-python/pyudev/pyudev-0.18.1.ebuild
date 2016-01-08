@@ -15,11 +15,12 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="amd64 arm x86"
-IUSE="pygobject pyqt4 pyside test"
+IUSE="pygobject qt4 qt5 pyside test"
 
 RDEPEND="virtual/udev
 	pygobject? ( dev-python/pygobject:2[$(python_gen_usedep 'python2*')] )
-	pyqt4? ( dev-python/PyQt4[${PYTHON_USEDEP}] )
+	qt4? ( dev-python/PyQt4[${PYTHON_USEDEP}] )
+	qt5? ( dev-python/PyQt5[${PYTHON_USEDEP}] )
 	pyside? ( dev-python/pyside[${PYTHON_USEDEP}] )"
 DEPEND="${RDEPEND}
 	dev-python/setuptools[${PYTHON_USEDEP}]
@@ -34,28 +35,35 @@ REQUIRED_USE="pygobject? ( || ( $(python_gen_useflags 'python2*') ) )
 python_prepare_all() {
 	# tests are known to pass then fail on alternate runs
 	# tests: fix run_path
+	pwd
+	ls
 	sed -i -e "s|== \('/run/udev'\)|in (\1,'/dev/.udev')|g" \
 		tests/test_core.py || die
 
 	if ! use pygobject; then
-		rm pyudev/glib.py || die
+		rm src/pyudev/glib.py || die
 		sed -i -e "s|[, ]*GlibBinding()||g" \
 			tests/test_observer.py || die
 	fi
-	if ! use pyqt4; then
-		rm pyudev/pyqt4.py || die
+	if ! use qt4; then
+		rm src/pyudev/pyqt4.py || die
 		sed -i -e "s|Qt4Binding('PyQt4')[, ]*||g" \
 			tests/test_observer.py || die
 	fi
+	if ! use qt5; then
+		rm src/pyudev/pyqt5.py || die
+		sed -i -e "s|Qt4Binding('PyQt5')[, ]*||g" \
+			tests/test_observer.py || die
+	fi
 	if ! use pyside; then
-		rm pyudev/pyside.py || die
+		rm src/pyudev/pyside.py || die
 		sed -i -e "s|Qt4Binding('PySide')[, ]*||g" \
 			tests/test_observer.py || die
 	fi
-	if ! use pyqt4 && ! use pyside; then
-		rm pyudev/_qt_base.py || die
+	if ! use qt4 && ! use qt5 && ! use pyside; then
+		rm src/pyudev/_qt_base.py || die
 	fi
-	if ! use pyqt4 && ! use pyside && ! use pygobject; then
+	if ! use qt4 && ! use qt5 && ! use pyside && ! use pygobject; then
 		rm tests/test_observer.py || die
 	fi
 
