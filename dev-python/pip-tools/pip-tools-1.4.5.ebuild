@@ -23,5 +23,3 @@ DEPEND="
 	dev-python/first[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]"
 RDEPEND=""
-
-PATCHES=( "${FILESDIR}"/${P}-remove-osx-fix.patch )
