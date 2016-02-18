@@ -30,5 +30,4 @@ ruby_add_rdepend "
 	<dev-ruby/logging-3
 	<dev-ruby/nori-3
 	<dev-ruby/rubyntlm-0.5
-	<dev-ruby/uuidtools-2.2
 "
