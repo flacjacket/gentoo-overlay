@@ -18,5 +18,6 @@ IUSE=""
 
 DEPEND="
 	dev-python/funcparserlib[${PYTHON_USEDEP}]
-	dev-python/pillow[${PYTHON_USEDEP}]"
+	dev-python/pillow[${PYTHON_USEDEP}]
+	dev-python/setuptools-git[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
