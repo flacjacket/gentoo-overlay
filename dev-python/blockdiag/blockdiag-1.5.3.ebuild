@@ -20,3 +20,9 @@ DEPEND="
 	dev-python/funcparserlib[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
+
+python_prepare_all() {
+	sed -e '/include_package_data=True/d' -i setup.py || die
+
+	distutils-r1_python_prepare_all
+}
