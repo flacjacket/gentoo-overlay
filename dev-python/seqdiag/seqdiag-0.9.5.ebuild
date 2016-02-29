@@ -20,7 +20,7 @@ DEPEND="dev-python/blockdiag[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
 
 python_prepare_all() {
-	sed -e '/include_package_data=True/d' -i setup.py || di
+	sed -e '/include_package_data=True/d' -i setup.py || die
 
 	distutils-r1_python_prepare_all
 }

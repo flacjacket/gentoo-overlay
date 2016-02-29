@@ -21,3 +21,9 @@ RDEPEND="
 	>=dev-python/blockdiag-1.5.0[${PYTHON_USEDEP}]
 	>=dev-python/seqdiag-0.9.3[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6[${PYTHON_USEDEP}]"
+
+python_prepare_all() {
+	sed -e '/include_package_data=True/d' -i setup.py || die
+
+	distutils-r1_python_prepare_all
+}
