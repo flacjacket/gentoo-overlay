@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cd /opt/mwosd-gui-1.5.2.4
+cd /opt/mwosd-gui-1.6
 ./MW_OSD_GUI
