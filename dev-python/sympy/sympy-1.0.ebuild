@@ -20,8 +20,7 @@ IUSE="doc examples gtk imaging ipython latex mathml opengl pdf png pyglet test t
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	doc? ( || ( $(python_gen_useflags 'python2*') ) )"
 
-RDEPEND="
-	dev-python/mpmath[${PYTHON_USEDEP}]
+RDEPEND="dev-python/mpmath[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '>=dev-python/pexpect-2.0[${PYTHON_USEDEP}]' python2_7)
 	imaging? ( dev-python/pillow[${PYTHON_USEDEP}] )
 	ipython? ( dev-python/ipython[${PYTHON_USEDEP}] )
@@ -51,7 +50,7 @@ pkg_setup() {
 }
 
 python_prepare_all() {
-	epatch "${FILESDIR}"/${PN}-0.7.6-doc-makefile.patch
+	epatch "${FILESDIR}"/${P}-doc-makefile.patch
 	distutils-r1_python_prepare_all
 }
 
@@ -64,7 +63,7 @@ python_compile_all() {
 		export XDG_CONFIG_HOME="${T}/config-dir"
 		mkdir "${XDG_CONFIG_HOME}" || die
 		chmod 0700 "${XDG_CONFIG_HOME}" || die
-		emake -j1 -C doc html info cheatsheet
+		emake -j1 -C doc html info man cheatsheet
 	fi
 }
 
@@ -78,13 +77,12 @@ python_install() {
 
 python_install_all() {
 	local DOCS=( AUTHORS README.rst )
-	use doc &&\
-		DOCS+=(
-			doc/_build/cheatsheet/cheatsheet.pdf
-			doc/_build/cheatsheet/combinatoric_cheatsheet.pdf
-		) && \
-		local HTML_DOCS=( doc/_build/html/. ) && \
+	if use doc; then
+		DOCS+=( doc/_build/cheatsheet/cheatsheet.pdf \
+				doc/_build/cheatsheet/combinatoric_cheatsheet.pdf )
+		local HTML_DOCS=( doc/_build/html/. )
 		doinfo doc/_build/texinfo/${PN}.info
+	fi
 	use examples && local EXAMPLES=( examples/. )
 	distutils-r1_python_install_all
 
