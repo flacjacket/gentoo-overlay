@@ -23,6 +23,7 @@ RDEPEND="virtual/udev
 	qt5? ( dev-python/PyQt5[${PYTHON_USEDEP}] )
 	pyside? ( dev-python/pyside[${PYTHON_USEDEP}] )"
 DEPEND="${RDEPEND}
+	dev-python/six[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	test? ( dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}] )"
