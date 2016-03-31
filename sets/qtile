@@ -1,4 +1,9 @@
 dev-python/netifaces
+dev-python/numpydoc
+dev-python/pip-tools
+dev-python/psutil
+dev-python/pyudev
+dev-python/sphinxcontrib-seqdiag
 dev-python/wifi
 x11-misc/sddm
 x11-terms/rxvt-unicode
