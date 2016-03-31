@@ -18,6 +18,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="
+	dev-python/pip[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	>=dev-python/click-6[${PYTHON_USEDEP}]
 	dev-python/first[${PYTHON_USEDEP}]
