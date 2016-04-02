@@ -5,7 +5,7 @@
 EAPI=6
 
 if [[ "${PV}" == *beta* ]] ; then
-	MY_PV=${PV/_beta//}
+	MY_PV=${PV/_beta/}
 	BLHELI_FILE="BLHeliSuiteBeta${MY_PV//./}.zip"
 else
 	BLHELI_FILE="BLHeliSuite${PV//./}.zip"
