@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit qmake-utils autotools-utils
+inherit qmake-utils
 
 MY_PN="GoldenCheetah"
 
@@ -26,15 +26,15 @@ DEPEND="
 	dev-qt/qttranslations:5"
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-flex-fix.patch )
-
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_prepare() {
-	autotools-utils_src_prepare
+	eapply "${FILESDIR}"/${P}-flex-fix.patch
 
 	sed -e "s:#QMAKE_LRELEASE:QMAKE_LRELEASE:" src/gcconfig.pri.in > src/gcconfig.pri || die
 	sed -e "s:/usr/local/:/usr/:" qwt/qwtconfig.pri.in > qwt/qwtconfig.pri || die
+
+	eapply_user
 }
 
 src_configure() {
