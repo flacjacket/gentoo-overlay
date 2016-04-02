@@ -2,9 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-BLHELI_FILE="BLHeliSuite${PV//./}.zip"
+if [[ "${PV}" == *beta* ]] ; then
+	MY_PV=${PV/_beta//}
+	BLHELI_FILE="BLHeliSuiteBeta${MY_PV//./}.zip"
+else
+	BLHELI_FILE="BLHeliSuite${PV//./}.zip"
+fi
 DL_URI="https://www.mediafire.com/folder/dx6kfaasyo24l/BLHeliSuite"
 
 DESCRIPTION="BLHeli interface for SiLabs and BLHeli for Atmel based ESC"
