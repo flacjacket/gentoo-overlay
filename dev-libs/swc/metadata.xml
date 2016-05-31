@@ -4,7 +4,7 @@
 	<use>
 		<flag name="libinput">Enable support for input devices via <pkg>dev-libs/libinput</pkg></flag>
 	</use>
-	<maintainer>
+	<maintainer type="person">
 		<email>sean.v.775@gmail.com</email>
 		<name>Sean Vig</name>
 	</maintainer>
