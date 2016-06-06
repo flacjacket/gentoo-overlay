@@ -35,15 +35,19 @@ RESTRICT="strip"
 NEWLIBBUILD="${WORKDIR}/build"
 NANOLIBBUILD="${WORKDIR}/build-nano"
 
-NANOCONF="--enable-newlib-reent-small
-	--disable-newlib-fvwrite-in-streamio
-	--disable-newlib-fseek-optimization
-	--disable-newlib-wide-orient
-	--enable-newlib-nano-malloc
-	--disable-newlib-unbuf-stream-opt
-	--enable-lite-exit
-	--enable-newlib-global-atexit
-	--enable-newlib-nano-formatted-io"
+NEWLIBCONF=" --disable-newlib-supplied-syscalls
+    --enable-newlib-io-long-long
+    --enable-newlib-register-fini"
+NANOCONF="--disable-newlib-supplied-syscalls
+    --enable-newlib-reent-small
+    --disable-newlib-fvwrite-in-streamio
+    --disable-newlib-fseek-optimization
+    --disable-newlib-wide-orient
+    --enable-newlib-nano-malloc
+    --disable-newlib-unbuf-stream-opt
+    --enable-lite-exit
+    --enable-newlib-global-atexit
+    --enable-newlib-nano-formatted-io"
 
 pkg_setup() {
 	# Reject newlib-on-glibc type installs
@@ -76,7 +80,8 @@ src_configure() {
 	econf \
 		$(use_enable unicode newlib-mb) \
 		$(use_enable nls) \
-		${myconf}
+		${myconf} \
+		${NEWLIBCONF}
 
 	mkdir -p "${NANOLIBBUILD}"
 	cd "${NANOLIBBUILD}"
@@ -95,11 +100,12 @@ src_compile() {
 }
 
 src_install() {
-	cd "${NEWLIBBUILD}"
-	emake -j1 DESTDIR="${D}" install
 	cd "${NANOLIBBUILD}"
 	emake -j1 DESTDIR="${D}" install
 	find "${D}" -regex ".*/lib\(c\|g\|rdimon\)\.a" -exec rename .a _nano.a '{}' \;
+
+	cd "${NEWLIBBUILD}"
+	emake -j1 DESTDIR="${D}" install
 #	env -uRESTRICT CHOST=${CTARGET} prepallstrip
 	# minor hack to keep things clean
 	rm -fR "${D}"/usr/share/info
