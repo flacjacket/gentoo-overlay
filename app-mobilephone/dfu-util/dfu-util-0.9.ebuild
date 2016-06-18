@@ -19,6 +19,8 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_prepare() {
+	eapply_user
+
 	if [[ ${PV} == "9999" ]] ; then
 		git-2_src_prepare
 		eautoreconf
