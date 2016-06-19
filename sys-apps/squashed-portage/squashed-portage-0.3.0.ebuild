@@ -24,6 +24,8 @@ DEPEND="
 "
 
 src_prepare() {
+	eapply_user
+
 	epatch "${FILESDIR}/${P}-fix-init.patch"
 }
 
