@@ -22,6 +22,8 @@ DEPEND="dev-python/wxpython:2.8
 RDEPEND="${DEPEND}"
 
 src_prepare() {
+	eapply_user
+
 	python_fix_shebang congruity mhgui mhmanager.py
 
 	epatch "${FILESDIR}"/${P}-wxwidgets-2.8.patch
