@@ -33,13 +33,14 @@ src_prepare() {
 	eapply_user
 
 	eapply "${FILESDIR}"/${P}-flex-fix.patch
+	eapply "${FILESDIR}"/${P}-make_pair-fix.patch
 
 	sed -e "s:#QMAKE_LRELEASE:QMAKE_LRELEASE:" src/gcconfig.pri.in > src/gcconfig.pri || die
 	sed -e "s:/usr/local/:/usr/:" qwt/qwtconfig.pri.in > qwt/qwtconfig.pri || die
 }
 
 src_configure() {
-	eqmake5
+	eqmake5 -recursive
 }
 
 src_install() {
