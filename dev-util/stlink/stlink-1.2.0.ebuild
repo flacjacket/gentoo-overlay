@@ -14,7 +14,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="gtk"
 
 DEPEND="
-	dev-util/intltool
 	virtual/libusb:1
 	gtk? ( x11-libs/gtk+:3 )
 "

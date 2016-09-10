@@ -37,12 +37,12 @@ S="${WORKDIR}"
 RESTRICT="mirror"
 
 src_unpack() {
-    unpack_deb ${A}
+	unpack_deb ${A}
 }
 
 src_install() {
 	rm -rf "${WORKDIR}"/usr/share/lintian
 	rm -rf "${WORKDIR}"/usr/share/doc
 
-    cp -R "${WORKDIR}/usr" "${D}" || die "install failed!"
+	cp -R "${WORKDIR}/usr" "${D}" || die "install failed!"
 }
