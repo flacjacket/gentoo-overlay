@@ -60,16 +60,14 @@ python_prepare_all() {
 	# use system joblib
 	rm -r sklearn/externals/joblib/* || die
 	echo "from joblib import *" > sklearn/externals/joblib/__init__.py
-	sed -i -e '/joblib\/test/d' sklearn/externals/setup.py || die
-	sed -i -e 's/..externals.joblib/ joblib/g' \
-		sklearn/cross_validation.py \
-		sklearn/decomposition/tests/test_sparse_pca.py \
-		sklearn/metrics/pairwise.py || die
-
-	rm sklearn/externals/funcsigs.py || die
-	rm sklearn/externals/odict.py || die
-	sed -e 's:from ..externals.funcsigs import signature:from funcsigs import signature:g' \
-		-i sklearn/utils/fixes.py || die
+	sed -e 's/sklearn\.externals\.joblib/joblib/g' \
+		-i sklearn/datasets/svmlight_format.py \
+		-i sklearn/model_selection/tests/test_search.py \
+		-i sklearn/utils/estimator_checks.py
+	sed -i -e 's/\.\.externals\.joblib/joblib/g' \
+		sklearn/*/*.py || die
+	sed -i -e 's/\.externals\.joblib/joblib/g' \
+		sklearn/*.py || die
 
 	distutils-r1_python_prepare_all
 }
