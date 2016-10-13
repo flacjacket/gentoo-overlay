@@ -22,4 +22,4 @@ IUSE=""
 RDEPEND="dev-python/tqdm[${PYTHON_USEDEP}]
 	>=dev-python/pandas-0.18.0[${PYTHON_USEDEP}]
 	>=dev-python/theano-0.8.2[${PYTHON_USEDEP}]"
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
