@@ -28,7 +28,7 @@ DEPEND="
 		dev-python/nose[${PYTHON_USEDEP}]
 		dev-python/reportlab[${PYTHON_USEDEP}]
 		dev-python/docutils[${PYTHON_USEDEP}]
-		>=dev-python/pep8-1.3[${PYTHON_USEDEP}]
+		dev-python/pycodestyle[${PYTHON_USEDEP}]
 	)
 "
 
