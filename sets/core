@@ -1,6 +1,6 @@
 app-admin/logrotate
 app-admin/sudo
-app-admin/syslog-ng
+app-admin/metalog
 app-editors/vim
 app-misc/tmux
 app-shells/bash-completion
