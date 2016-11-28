@@ -40,5 +40,5 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
-PATCHES=( "${FILESDIR}"/${P}-xcb-1.12.patch )
+#PATCHES=( "${FILESDIR}"/${P}-xcb-1.12.patch )
 #PATCHES=( "${FILESDIR}"/${PN}-setup.hs.patch )

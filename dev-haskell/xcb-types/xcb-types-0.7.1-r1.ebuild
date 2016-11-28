@@ -25,5 +25,3 @@ RDEPEND=">=dev-haskell/mtl-2.0:=[profile?] <dev-haskell/mtl-2.3:=[profile?]
 DEPEND="${RDEPEND}
 	>=dev-haskell/cabal-1.16.0
 "
-
-PATCHES=( "${FILESDIR}"/${P}-xcb-1.12.patch )
