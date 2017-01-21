@@ -35,7 +35,7 @@ RDEPEND="
 	>=dev-haskell/optparse-applicative-0.13:=[profile?]
 	dev-haskell/semigroups:=[profile?]
 	dev-haskell/split:=[profile?]
-	>=dev-haskell/xcb-types-0.7.0:=[profile?]
+	>=dev-haskell/xcb-types-0.8.0:=[profile?]
 	>=dev-lang/ghc-7.6.1:=
 	dev-python/six[${PYTHON_USEDEP}]
 	x11-proto/xcb-proto:="
@@ -52,7 +52,6 @@ DEPEND="
 src_prepare() {
 	cabal-mksetup
 
-	epatch "${FILESDIR}"/${P}-switch-fix.patch
 	eapply_user
 }
 
