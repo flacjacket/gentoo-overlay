@@ -1,0 +1,21 @@
+diff --git a/Makefile b/Makefile
+index 8d7f897..7f02783 100644
+--- a/Makefile
++++ b/Makefile
+@@ -8,15 +8,10 @@ PARALLEL=$(shell which parallel)
+ CABAL=cabal --config-file=/dev/null
+ 
+ # you should have xcb-proto installed to run this
+-xcffib: $(GEN) module/*.py
++xcffib: module/*.py
+ 	$(GEN) --input $(XCBDIR) --output ./xcffib
+ 	cp ./module/*py ./xcffib/
+ 	sed -i "s/__xcb_proto_version__ = .*/__xcb_proto_version__ = \"${XCBVER}\"/" xcffib/__init__.py
+-ifeq ($(TRAVIS),true)
+-	python xcffib/ffi_build.py
+-else
+-	$(shell python xcffib/ffi_build.py > /dev/null 2>&1 || python3 xcffib/ffi_build.py)
+-endif
+ 
+ .PHONY: xcffib-fmt
+ xcffib-fmt: $(GEN) module/*.py

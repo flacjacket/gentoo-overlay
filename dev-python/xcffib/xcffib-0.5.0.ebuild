@@ -52,6 +52,7 @@ DEPEND="
 src_prepare() {
 	cabal-mksetup
 
+	epatch "${FILESDIR}"/${PN}-nocabal.patch
 	eapply_user
 }
 
