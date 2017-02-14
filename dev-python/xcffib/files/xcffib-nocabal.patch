@@ -1,8 +1,8 @@
 diff --git a/Makefile b/Makefile
-index 8d7f897..7f02783 100644
+index 059c124..49d3752 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -8,15 +8,10 @@ PARALLEL=$(shell which parallel)
+@@ -12,11 +12,14 @@ PARALLEL=$(shell which parallel)
  CABAL=cabal --config-file=/dev/null
  
  # you should have xcb-proto installed to run this
@@ -11,11 +11,11 @@ index 8d7f897..7f02783 100644
  	$(GEN) --input $(XCBDIR) --output ./xcffib
  	cp ./module/*py ./xcffib/
  	sed -i "s/__xcb_proto_version__ = .*/__xcb_proto_version__ = \"${XCBVER}\"/" xcffib/__init__.py
--ifeq ($(TRAVIS),true)
--	python xcffib/ffi_build.py
--else
--	$(shell python xcffib/ffi_build.py > /dev/null 2>&1 || python3 xcffib/ffi_build.py)
--endif
+-	@if [ "$(TRAVIS)" = true ]; then python xcffib/ffi_build.py; else python xcffib/ffi_build.py > /dev/null 2>&1 || python3 xcffib/ffi_build.py; fi
++	sed -i "s/version = .*/version = \"${ver}\"/" setup.py
++	sed -i "s/__version__ = .*/__version__ = \"${ver}\"/" xcffib/__init__.py
++	sed -r -i -e "s/(^version = \s*)[\"0-9\.]*/\1\"${ver}\"/" setup.py
++	sed -r -i -e "s/(^version:\s*)[0-9\.]*/\1${ver}/" xcffib.cabal
  
  .PHONY: xcffib-fmt
  xcffib-fmt: $(GEN) module/*.py

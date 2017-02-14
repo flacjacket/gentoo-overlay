@@ -78,7 +78,7 @@ src_install() {
 }
 
 python_prepare_all() {
-	emake xcffib
+	emake xcffib ver=${PV}
 
 	distutils-r1_python_prepare_all
 }
