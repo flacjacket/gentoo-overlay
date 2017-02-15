@@ -17,6 +17,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+	dev-python/clint[${PYTHON_USEDEP}]
 	dev-python/pkginfo[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/requests-toolbelt[${PYTHON_USEDEP}]"
