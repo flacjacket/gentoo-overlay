@@ -16,16 +16,19 @@ SRC_URI="mirror://hackage/packages/archive/${PN}/${PV}/${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~x86"
-IUSE="+boundschecks internalchecks unsafechecks"
+IUSE="+boundschecks internalchecks unsafechecks wall"
 
-RDEPEND=">=dev-haskell/primitive-0.5.0.1:=[profile?] <dev-haskell/primitive-0.6.2:=[profile?]
+RDEPEND=">=dev-haskell/primitive-0.5.0.1:=[profile?] <dev-haskell/primitive-0.7:=[profile?]
+	>=dev-haskell/semigroups-0.18:=[profile?] <dev-haskell/semigroups-0.19:=[profile?]
 	>=dev-lang/ghc-7.4.1:=
 "
 DEPEND="${RDEPEND}
 	>=dev-haskell/cabal-1.10
-	test? ( >=dev-haskell/quickcheck-2.7 <dev-haskell/quickcheck-2.8
+	test? ( dev-haskell/hunit
+		>=dev-haskell/quickcheck-2.9 <dev-haskell/quickcheck-2.10
 		dev-haskell/random
 		dev-haskell/test-framework
+		dev-haskell/test-framework-hunit
 		dev-haskell/test-framework-quickcheck2
 		>=dev-haskell/transformers-0.2.0.0 )
 "
@@ -34,5 +37,6 @@ src_configure() {
 	haskell-cabal_src_configure \
 		$(cabal_flag boundschecks boundschecks) \
 		$(cabal_flag internalchecks internalchecks) \
-		$(cabal_flag unsafechecks unsafechecks)
+		$(cabal_flag unsafechecks unsafechecks) \
+		$(cabal_flag wall wall)
 }
