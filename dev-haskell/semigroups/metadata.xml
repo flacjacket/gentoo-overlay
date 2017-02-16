@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<use>
+		<flag name="binary">Enable the use of <pkg>dev-haskell/binary</pkg></flag>
+		<flag name="bytestring">Enable the use of <pkg>dev-haskell/bytestring</pkg></flag>
+		<flag name="bytestring-builder">Enable the use of <pkg>dev-haskell/bytestring-builder</pkg></flag>
+		<flag name="containers">Enable the use of <pkg>dev-haskell/containers</pkg></flag>
+		<flag name="deepseq">Enable the use of <pkg>dev-haskell/deepseq</pkg></flag>
+		<flag name="hashable">Enable the use of <pkg>dev-haskell/hashable</pkg></flag>
+		<flag name="tagged">Enable the use of <pkg>dev-haskell/tagged</pkg></flag>
+		<flag name="text">Enable the use of <pkg>dev-haskell/text</pkg></flag>
+		<flag name="transformers">Enable the use of <pkg>dev-haskell/transformers</pkg> and <pkg>dev-haskell/transformers-compat</pkg></flag>
+		<flag name="unordered-containers">Enable the use of <pkg>dev-haskell/unordered-containers</pkg></flag>
+	</use>
+	<maintainer type="project">
+		<email>haskell@gentoo.org</email>
+		<name>Gentoo Haskell</name>
+	</maintainer>
+	<longdescription>
+		In mathematics, a semigroup is an algebraic structure consisting of a set together with an associative binary operation. A semigroup generalizes a monoid in that there might not exist an identity element. It also (originally) generalized a group (a monoid with all inverses) to a type where every element did not have to have an inverse, thus the name semigroup.
+	</longdescription>
+</pkgmetadata>
