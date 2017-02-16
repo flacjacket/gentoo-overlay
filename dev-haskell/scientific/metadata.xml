@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<use>
+		<flag name="integer-simple">Enable use of <pkg>dev-haskell/integer-simple</pkg></flag>
+	</use>
+	<maintainer type="project">
+		<email>haskell@gentoo.org</email>
+		<name>Gentoo Haskell</name>
+	</maintainer>
+	<longdescription>
+		@Data.Scientific@ provides the number type &#39;Scientific&#39;. Scientific numbers are
+		arbitrary precision and space efficient. They are represented using
+		&lt;http://en.wikipedia.org/wiki/Scientific_notation scientific notation&gt;.
+		The implementation uses a coefficient @c :: &#39;Integer&#39;@ and a base-10 exponent
+		@e :: &#39;Int&#39;@. A scientific number corresponds to the
+		&#39;Fractional&#39; number: @&#39;fromInteger&#39; c * 10 &#39;^^&#39; e@.
+		
+		Note that since we&#39;re using an &#39;Int&#39; to represent the exponent these numbers
+		aren&#39;t truly arbitrary precision. I intend to change the type of the exponent
+		to &#39;Integer&#39; in a future release.
+		
+		The main application of &#39;Scientific&#39; is to be used as the target of parsing
+		arbitrary precision numbers coming from an untrusted source. The advantages
+		over using &#39;Rational&#39; for this are that:
+		
+		* A &#39;Scientific&#39; is more efficient to construct. Rational numbers need to be
+		constructed using &#39;%&#39; which has to compute the &#39;gcd&#39; of the &#39;numerator&#39; and
+		&#39;denominator&#39;.
+		
+		* &#39;Scientific&#39; is safe against numbers with huge exponents. For example:
+		@1e1000000000 :: &#39;Rational&#39;@ will fill up all space and crash your
+		program. Scientific works as expected:
+		
+		&gt; &gt; read &quot;1e1000000000&quot; :: Scientific
+		&gt; 1.0e1000000000
+		
+		* Also, the space usage of converting scientific numbers with huge exponents to
+		@&#39;Integral&#39;s@ (like: &#39;Int&#39;) or @&#39;RealFloat&#39;s@ (like: &#39;Double&#39; or &#39;Float&#39;)
+		will always be bounded by the target type.
+	</longdescription>
+</pkgmetadata>
