@@ -20,8 +20,8 @@ IUSE="check-bounds +integer-gmp"
 
 RDEPEND=">=dev-haskell/nats-1.1:=[profile?] <dev-haskell/nats-1.2:=[profile?]
 	>=dev-lang/ghc-7.4.1:=
-	integer-gmp? ( dev-haskell/integer-gmp:=[profile?] )
 	!integer-gmp? ( dev-haskell/integer-simple:=[profile?] )
+	integer-gmp? ( dev-lang/ghc:=[gmp] )
 "
 DEPEND="${RDEPEND}
 	>=dev-haskell/cabal-1.10

@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<use>
 		<flag name="check-bounds">Replace unsafe array operations with safe ones</flag>
-		<flag name="integer-gmp">Use <pkg>dev-haskell/integer-gmp</pkg> over <pkg>dev-haskell/integer-simple</pkg></flag>
+		<flag name="integer-gmp">Use built-in integer-gmp over <pkg>dev-haskell/integer-simple</pkg></flag>
 	</use>
 	<maintainer type="project">
 		<email>haskell@gentoo.org</email>

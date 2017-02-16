@@ -25,6 +25,7 @@ RDEPEND=">=dev-haskell/bytestring-builder-0.10.4:=[profile?] <dev-haskell/bytest
 	>=dev-haskell/vector-0.7:=[profile?] <dev-haskell/vector-0.13:=[profile?]
 	>=dev-lang/ghc-7.4.1:=
 	integer-simple? ( dev-haskell/integer-simple:=[profile?] )
+	!integer-simple? ( dev-lang/ghc:=[gmp] )
 "
 DEPEND="${RDEPEND}
 	>=dev-haskell/cabal-1.10
