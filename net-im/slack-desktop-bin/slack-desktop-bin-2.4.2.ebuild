@@ -7,16 +7,14 @@ inherit unpacker eutils
 DESCRIPTION="Official Slack Desktop Client"
 HOMEPAGE="http://www.slack.com/"
 
-SRC_URI_AMD64="https://slack-ssb-updates.global.ssl.fastly.net/linux_releases/slack-desktop-${PV}-amd64.deb"
-SRC_URI_X86="https://slack-ssb-updates.global.ssl.fastly.net/linux_releases/slack-desktop-${PV}-i386.deb"
+SRC_URI_AMD64="https://downloads.slack-edge.com/linux_releases/slack-desktop-${PV}-amd64.deb"
 SRC_URI="
 	amd64? ( ${SRC_URI_AMD64} )
-	x86? ( ${SRC_URI_X86} )
 "
 
 LICENSE="slack"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 DEPEND="
 	media-libs/alsa-lib
