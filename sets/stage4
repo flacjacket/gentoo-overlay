@@ -3,7 +3,7 @@ app-text/evince
 app-text/texlive
 media-gfx/feh
 media-gfx/gimp
-media-gfx/imagemagick
+media-gfx/graphicsmagick
 media-gfx/inkscape
 media-gfx/scrot
 media-video/mplayer
