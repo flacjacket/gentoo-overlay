@@ -1,10 +1,9 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
-PYTHON_COMPAT=( python2_7 python3_{4,5} )
+PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
 
 inherit distutils-r1 flag-o-matic
 
@@ -46,7 +45,7 @@ DEPEND="
 
 S="${WORKDIR}/${MYP}"
 
-PATCHES=( "${FILESDIR}/${PN}-0.18-system-cblas.patch" )
+PATCHES=( "${FILESDIR}/${P}-system-cblas.patch" )
 
 python_prepare_all() {
 	# bug #397605
@@ -57,17 +56,22 @@ python_prepare_all() {
 	# scikits-learn now uses the horrible numpy.distutils automagic
 	export SCIPY_FCONFIG="config_fc --noopt --noarch"
 
+	# remove bundled cblas
+	rm -r sklearn/src || die
+
 	# use system joblib
-	rm -r sklearn/externals/joblib/* || die
-	echo "from joblib import *" > sklearn/externals/joblib/__init__.py
-	sed -e 's/sklearn\.externals\.joblib/joblib/g' \
-		-i sklearn/datasets/svmlight_format.py \
-		-i sklearn/model_selection/tests/test_search.py \
-		-i sklearn/utils/estimator_checks.py
-	sed -i -e 's/\.\.externals\.joblib/joblib/g' \
-		sklearn/*/*.py || die
-	sed -i -e 's/\.externals\.joblib/joblib/g' \
-		sklearn/*.py || die
+	rm -r sklearn/externals/joblib || die
+	sed -i -e '/joblib/d' sklearn/externals/setup.py || die
+	for f in sklearn/{*/,}*.py; do
+		sed -r -e '/^from/s/(sklearn|\.|)\.externals\.joblib/joblib/' \
+			-e 's/from (sklearn|\.|)\.externals import/import/' -i $f || die
+	done
+
+	rm sklearn/externals/funcsigs.py || die
+	rm sklearn/externals/odict.py || die
+	for f in sklearn/{utils/fixes.py,gaussian_process/{tests/test_,}kernels.py}; do
+		sed -r -e 's/from (sklearn|\.|)\.externals\.funcsigs/from funcsigs/' -i $f || die
+	done
 
 	distutils-r1_python_prepare_all
 }

@@ -1,6 +1,8 @@
---- scikit-learn-0.18.orig/sklearn/_build_utils/__init__.py
-+++ scikit-learn-0.18/sklearn/_build_utils/__init__.py
-@@ -23,7 +23,7 @@
+Index: scikit-learn-0.18.1/sklearn/_build_utils/__init__.py
+===================================================================
+--- scikit-learn-0.18.1.orig/sklearn/_build_utils/__init__.py
++++ scikit-learn-0.18.1/sklearn/_build_utils/__init__.py
+@@ -31,7 +31,7 @@ def get_blas_info():
          return False
  
      blas_info = get_info('blas_opt', 0)
@@ -9,11 +11,13 @@
          cblas_libs = ['cblas']
          blas_info.pop('libraries', None)
      else:
---- scikit-learn-0.18.orig/sklearn/setup.py
-+++ scikit-learn-0.18/sklearn/setup.py
-@@ -58,14 +58,6 @@
-         libraries=libraries,
-     )
+Index: scikit-learn-0.18.1/sklearn/setup.py
+===================================================================
+--- scikit-learn-0.18.1.orig/sklearn/setup.py
++++ scikit-learn-0.18.1/sklearn/setup.py
+@@ -63,14 +63,6 @@ def configuration(parent_package='', top
+                          libraries=libraries,
+                          )
  
 -    # some libs needs cblas, fortran-compiled BLAS will not be sufficient
 -    blas_info = get_info('blas_opt', 0)
