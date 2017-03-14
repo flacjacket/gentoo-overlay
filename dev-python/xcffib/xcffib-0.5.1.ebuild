@@ -24,9 +24,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 RDEPEND="
-	$(python_gen_cond_dep '>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]' 'python*')
-	$(python_gen_cond_dep 'virtual/pypy' pypy)
-	$(python_gen_cond_dep 'virtual/pypy3' pypy3)
 	dev-haskell/attoparsec:=[profile?]
 	dev-haskell/filemanip:=[profile?]
 	dev-haskell/either:=[profile?]
@@ -38,6 +35,7 @@ RDEPEND="
 	>=dev-haskell/xcb-types-0.8.0:=[profile?]
 	>=dev-lang/ghc-7.6.1:=
 	dev-python/six[${PYTHON_USEDEP}]
+	virtual/python-cffi[${PYTHON_USEDEP}]
 	x11-proto/xcb-proto:="
 DEPEND="
 	>=dev-haskell/cabal-1.16.0

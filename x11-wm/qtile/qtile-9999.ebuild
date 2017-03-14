@@ -28,9 +28,9 @@ RDEPEND="
 	x11-libs/pango
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	>=dev-python/cairocffi-0.7[${PYTHON_USEDEP}]
-	>=dev-python/cffi-1.1.0[${PYTHON_USEDEP}]
 	>=dev-python/six-1.4.1[${PYTHON_USEDEP}]
 	>=dev-python/xcffib-0.3.2[${PYTHON_USEDEP}]
+	virtual/python-cffi[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep 'dev-python/trollius[${PYTHON_USEDEP}]' 'python2*')
 "
 DEPEND="${RDEPEND}

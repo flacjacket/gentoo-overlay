@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
 RDEPEND="
-	$(python_gen_cond_dep '>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]' 'python*')
+	virtual/python-cffi[${PYTHON_USEDEP}]
 	>=dev-python/xcffib-0.3.2[${PYTHON_USEDEP}]
 	x11-libs/cairo:0=
 	x11-libs/gdk-pixbuf[jpeg]
