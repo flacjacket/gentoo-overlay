@@ -7,9 +7,9 @@ media-gfx/graphicsmagick
 media-gfx/inkscape
 media-gfx/scrot
 media-video/mplayer
-net-irc/irssi
+net-irc/weechat
 net-misc/dropbox
-net-misc/openconnect
+net-vpn/openconnect
 
 @firefox
 @fonts
