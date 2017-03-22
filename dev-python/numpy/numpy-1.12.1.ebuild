@@ -10,7 +10,7 @@ FORTRAN_NEEDED=lapack
 
 inherit distutils-r1 flag-o-matic fortran-2 multiprocessing toolchain-funcs versionator
 
-DOC_PV="1.11.0"
+DOC_PV="1.12.0"
 DOC_P="${PN}-${DOC_PV}"
 
 DESCRIPTION="Fast array and numerical python library"
