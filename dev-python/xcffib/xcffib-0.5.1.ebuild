@@ -34,7 +34,7 @@ RDEPEND="
 	>=dev-haskell/xcb-types-0.8.0:=[profile?]
 	>=dev-lang/ghc-7.6.1:=
 	dev-python/six[${PYTHON_USEDEP}]
-	virtual/python-cffi[${PYTHON_USEDEP}]
+	dev-python/cffi:=[$(python_gen_usedep 'python*')]
 	x11-proto/xcb-proto:="
 DEPEND="
 	>=dev-haskell/cabal-1.16.0
