@@ -3,6 +3,8 @@
 
 EAPI=6
 
+inherit cmake-utils udev
+
 DESCRIPTION="Open source version of the STMicroelectronics Stlink Tools"
 HOMEPAGE="https://github.com/texane/stlink"
 SRC_URI="https://github.com/texane/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
@@ -19,16 +21,14 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	./autogen.sh
-	econf $(usex gtk --with-gtk)
+	local mycmakeargs=(
+		-DSTLINK_UDEV_RULES_DIR=$(get_udevdir)
+	)
+	cmake-utils_src_configure
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
-	dodoc AUTHORS ChangeLog README TODO
+	cmake-utils_src_install
 
-	insinto /lib/udev/rules.d
-	doins 49-stlinkv1.rules
-	doins 49-stlinkv2.rules
-	doins 49-stlinkv2-1.rules
+	dodoc ChangeLog.md README.md
 }
