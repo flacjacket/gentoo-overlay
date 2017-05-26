@@ -18,18 +18,17 @@ SLOT="0"
 # matplotlib/backends/qt4_editor: MIT
 # Fonts: BitstreamVera, OFL-1.1
 LICENSE="BitstreamVera BSD matplotlib MIT OFL-1.1"
-KEYWORDS="~amd64 ~x86"
-IUSE="cairo doc excel examples fltk gtk2 gtk3 latex pyside qt4 qt5 test tk wxwidgets"
+KEYWORDS="~amd64 ~arm ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+IUSE="cairo doc excel examples gtk2 gtk3 latex pyside qt4 qt5 test tk wxwidgets"
 
 PY2_FLAGS="|| ( $(python_gen_useflags python2_7) )"
 REQUIRED_USE="
 	doc? ( ${PY2_FLAGS} )
 	excel? ( ${PY2_FLAGS} )
-	fltk? ( ${PY2_FLAGS} )
 	gtk2? ( ${PY2_FLAGS} )
 	wxwidgets? ( ${PY2_FLAGS} )
 	test? (
-		cairo fltk latex pyside qt5 qt4 tk wxwidgets
+		cairo latex qt5 tk wxwidgets
 		|| ( gtk2 gtk3 )
 		)"
 
@@ -37,20 +36,17 @@ REQUIRED_USE="
 PY2_USEDEP=$(python_gen_usedep python2_7)
 COMMON_DEPEND="
 	dev-python/cycler[${PYTHON_USEDEP}]
-	>=dev-python/numpy-1.6[${PYTHON_USEDEP}]
+	dev-python/functools32[${PY2_USEDEP}]
+	>=dev-python/numpy-1.7.1[${PYTHON_USEDEP}]
 	dev-python/python-dateutil:0[${PYTHON_USEDEP}]
 	dev-python/pytz[${PYTHON_USEDEP}]
-	>=dev-python/six-1.4[${PYTHON_USEDEP}]
+	>=dev-python/six-1.10[${PYTHON_USEDEP}]
+	dev-python/subprocess32[${PY2_USEDEP}]
 	media-fonts/stix-fonts
 	media-libs/freetype:2
 	media-libs/libpng:0
 	media-libs/qhull
-	cairo? (
-		|| (
-			dev-python/pycairo[${PYTHON_USEDEP}]
-			dev-python/cairocffi[${PYTHON_USEDEP}]
-			)
-		)
+	cairo? ( dev-python/cairocffi[${PYTHON_USEDEP}] )
 	gtk2? (
 		dev-libs/glib:2=
 		x11-libs/gdk-pixbuf
@@ -86,7 +82,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=dev-python/pyparsing-1.5.6[${PYTHON_USEDEP}]
 	excel? ( dev-python/xlwt[${PYTHON_USEDEP}] )
-	fltk? ( dev-python/pyfltk[${PYTHON_USEDEP}] )
 	gtk3? (
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 		x11-libs/gtk+:3[introspection] )
@@ -107,6 +102,11 @@ RDEPEND="${COMMON_DEPEND}
 # A few C++ source files are written to srcdir.
 # Other than that, the ebuild shall be fit for out-of-source build.
 DISTUTILS_IN_SOURCE_BUILD=1
+
+PATCHES=(
+	"${FILESDIR}"/${P}-nose-fixes.patch
+	"${FILESDIR}"/${P}-freetype-spurious-failure.patch
+)
 
 pkg_setup() {
 	unset DISPLAY # bug #278524
@@ -143,11 +143,6 @@ python_prepare_all() {
 		-i lib/matplotlib/{mathtext,fontconfig_pattern}.py \
 		|| die "sed pyparsing failed"
 
-	# suggested by upstream
-#	sed \
-#		-e '/tol/s:32:35:g' \
-#		-i lib/matplotlib/tests/test_mathtext.py || die
-
 	sed \
 		-e "s:/usr/:${EPREFIX}/usr/:g" \
 		-i setupext.py || die
@@ -177,9 +172,12 @@ python_configure() {
 		[provide_packages]
 		pytz = False
 		dateutil = False
+		[packages]
+		tests = $(if use test; then echo True; else echo False; fi)
 		[gui_support]
 		agg = True
 		$(use_setup cairo)
+		$(use_setup gtk3)
 		$(use_setup pyside)
 		$(use_setup qt4)
 		$(use_setup qt5)
@@ -192,30 +190,23 @@ python_configure() {
 		echo "gtk3cairo = False" >> "${BUILD_DIR}"/setup.cfg || die
 	fi
 
-	if $(python_is_python3); then
+	if python_is_python3; then
 		cat >> "${BUILD_DIR}"/setup.cfg <<- EOF || die
-			six = True
-			fltk = False
-			fltkagg = False
 			gtk = False
 			gtkagg = False
 			wx = False
 			wxagg = False
 		EOF
 	else
-		cat >> "${BUILD_DIR}"/setup.cfg <<-EOF || die
-			six = False
-			$(use_setup fltk)
+		cat >> "${BUILD_DIR}"/setup.cfg <<- EOF || die
 			$(use_setup gtk2 gtk)
-			$(use_setup gtk3)
 			$(use_setup wxwidgets wx)
 		EOF
 	fi
 }
 
 wrap_setup() {
-	local MPLSETUPCFG=${BUILD_DIR}/setup.cfg
-	export MPLSETUPCFG
+	local -x MPLSETUPCFG=${BUILD_DIR}/setup.cfg
 	unset DISPLAY
 
 	# Note: remove build... if switching to out-of-source build
@@ -241,17 +232,15 @@ python_compile_all() {
 python_test() {
 	wrap_setup distutils_install_for_testing
 
-#	virtx ${EPYTHON} tests.py \
-#		--no-pep8 \
-#		--no-network \
-#		--verbose \
-#		--processes=$(makeopts_jobs)
-
 	virtx "${EPYTHON}" -c "import sys, matplotlib as m; sys.exit(0 if m.test(verbosity=2) else 1)"
 }
 
 python_install() {
 	wrap_setup distutils-r1_python_install
+
+	# mpl_toolkits namespace
+	python_moduleinto mpl_toolkits
+	python_domodule lib/mpl_toolkits/__init__.py
 }
 
 python_install_all() {
@@ -263,4 +252,6 @@ python_install_all() {
 		dodoc -r examples
 		docompress -x /usr/share/doc/${PF}/examples
 	fi
+
+	find "${D}" -name '*.pth' -delete || die
 }
