@@ -22,4 +22,5 @@ RDEPEND="
 	x11-misc/xclip"
 DEPEND="${RDEPEND}
 	dev-util/cargo
-	>=dev-lang/rust-1.15"
+	>=dev-lang/rust-1.15
+	x11-misc/xclip"
