@@ -21,4 +21,5 @@ RDEPEND="
 	media-libs/fontconfig
 	x11-misc/xclip"
 DEPEND="${RDEPEND}
+	dev-util/cargo
 	>=dev-lang/rust-1.15"
