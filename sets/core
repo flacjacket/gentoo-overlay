@@ -9,7 +9,6 @@ media-sound/alsa-utils
 net-fs/cifs-utils
 net-fs/nfs-utils
 net-misc/ntp
-sys-apps/microcode-ctl
 sys-apps/mlocate
 sys-apps/pmount
 sys-apps/usbutils
