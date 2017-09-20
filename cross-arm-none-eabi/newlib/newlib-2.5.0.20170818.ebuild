@@ -1,19 +1,16 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI="4"
+EAPI="6"
 
-inherit flag-o-matic toolchain-funcs eutils
+inherit flag-o-matic toolchain-funcs
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="git://sourceware.org/git/newlib-cygwin.git"
 	inherit git-r3
 else
 	SRC_URI="ftp://sourceware.org/pub/newlib/${P}.tar.gz"
-#	if [[ ${PV} != *.201[5-9]???? ]] ; then
-		KEYWORDS="-* ~arm ~hppa ~m68k ~mips ~ppc ~ppc64 ~sh ~sparc ~x86"
-#	fi
+	KEYWORDS="-* ~arm ~hppa ~m68k ~mips ~ppc ~ppc64 ~sh ~sparc ~x86"
 fi
 
 export CBUILD=${CBUILD:-${CHOST}}
@@ -25,7 +22,7 @@ if [[ ${CTARGET} == ${CHOST} ]] ; then
 fi
 
 DESCRIPTION="Newlib is a C library intended for use on embedded systems"
-HOMEPAGE="http://sourceware.org/newlib/"
+HOMEPAGE="https://sourceware.org/newlib/"
 
 LICENSE="NEWLIB LIBGLOSS GPL-2"
 SLOT="0"
@@ -59,19 +56,20 @@ pkg_setup() {
 	fi
 }
 
-src_prepare() {
-	epatch_user
-}
-
 src_configure() {
 	# we should fix this ...
 	unset LDFLAGS
 	CHOST=${CTARGET} strip-unsupported-flags
 
-	local myconf=""
+	local myconf=(
+		# Disable legacy syscall stub code in newlib.  These have been
+		# moved to libgloss for a long time now, so the code in newlib
+		# itself just gets in the way.
+		--disable-newlib-supplied-syscalls
+	)
 	[[ ${CTARGET} == "spu" ]] \
-		&& myconf="${myconf} --disable-newlib-multithread" \
-		|| myconf="${myconf} $(use_enable threads newlib-multithread)"
+		&& myconf+=( --disable-newlib-multithread ) \
+		|| myconf+=( $(use_enable threads newlib-multithread) )
 
 	mkdir -p "${NEWLIBBUILD}"
 	cd "${NEWLIBBUILD}"
@@ -80,7 +78,7 @@ src_configure() {
 	econf \
 		$(use_enable unicode newlib-mb) \
 		$(use_enable nls) \
-		${myconf} \
+		"${myconf[@]}" \
 		${NEWLIBCONF}
 
 	mkdir -p "${NANOLIBBUILD}"
@@ -90,7 +88,7 @@ src_configure() {
 	econf \
 		$(use_enable unicode newlib-mb) \
 		$(use_enable nls) \
-		${myconf} \
+		"${myconf[@]}" \
 		${NANOCONF}
 }
 
