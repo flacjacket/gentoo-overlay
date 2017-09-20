@@ -25,5 +25,3 @@ IUSE=""
 
 DEPEND="virtual/python-cffi[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}"/${PN}-cffi-update.patch )
