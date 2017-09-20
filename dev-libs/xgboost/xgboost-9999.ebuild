@@ -13,7 +13,7 @@ if [[ ${PV} == 9999* ]]; then
 	EGIT_REPO_URI="https://github.com/dmlc/${PN}.git"
 	inherit git-r3
 else
-	SRC_URI="http://github.com/dmlc/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/dmlc/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
 LICENSE="Apache-2.0"

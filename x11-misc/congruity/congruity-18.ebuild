@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python2_7 )
 inherit python-single-r1
 
 DESCRIPTION="GUI application for programming Logitech Harmony remote controls"
-HOMEPAGE="http://sourceforge.net/projects/congruity/"
+HOMEPAGE="https://sourceforge.net/projects/congruity/"
 SRC_URI="mirror://sourceforge/${PN}/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
