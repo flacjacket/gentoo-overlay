@@ -10,8 +10,8 @@ DESCRIPTION="A hackable text editor for the 21st Century"
 HOMEPAGE="https://atom.io"
 MY_PV="${PV//_/-}"
 
-ELECTRON_V=1.3.13
-ELECTRON_SLOT=1.3
+ELECTRON_V=1.6.9
+ELECTRON_SLOT=1.6
 
 # All binary packages depend on this
 NAN_V=2.4.0
@@ -21,10 +21,10 @@ CACHED_RUN_IN_THIS_CONTEXT_V=0.4.1
 GIT_UTILS_V=5.0.0
 NODE_NSLOG_V=3.0.0
 NODE_ONIGURUMA_V=6.2.1
-NODE_PATHWATCHER_V=7.0.0
+NODE_PATHWATCHER_V=8.0.1
 NODE_RUNAS_V=3.1.1
 SCROLLBAR_STYLE_V=3.2.0
-SPELL_CHECK_V=0.71.4
+SPELL_CHECK_V=0.72.1
 
 # text-buffer dependencies
 SUPERSTRING_V=1.2.1
@@ -95,7 +95,7 @@ DEPEND="
 	>=gnome-base/libgnome-keyring-3.12:=
 	>=dev-libs/oniguruma-5.9.5:=
 	>=dev-util/ctags-5.8
-	>=dev-util/electron-1.3.5:${ELECTRON_SLOT}
+	>=dev-util/electron-1.6.9:${ELECTRON_SLOT}
 	x11-libs/libxkbfile"
 RDEPEND="
 	${DEPEND}
