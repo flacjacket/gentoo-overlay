@@ -18,6 +18,7 @@ NAN_V=2.4.0
 
 # Keep dep versions in sync with atom/package.json
 CACHED_RUN_IN_THIS_CONTEXT_V=0.4.1
+FS_ADMIN_V=0.1.6
 GIT_UTILS_V=5.0.0
 NODE_NSLOG_V=3.0.0
 NODE_ONIGURUMA_V=6.2.1
@@ -55,6 +56,7 @@ SRC_URI="
 	https://github.com/atom/git-utils/archive/v${GIT_UTILS_V}.tar.gz -> atom-git-utils-${GIT_UTILS_V}.tar.gz
 	https://github.com/atom/keyboard-layout/archive/v${KEYBOARD_LAYOUT_V}.tar.gz -> atom-keyboard-layout-${KEYBOARD_LAYOUT_V}.tar.gz
 	https://github.com/atom/superstring/archive/v${SUPERSTRING_V}.tar.gz -> atom-superstring-${SUPERSTRING_V}.tar.gz
+	https://github.com/atom/fs-admin/archive/v${FS_ADMIN_V}.tar.gz -> atom-fs-admin-${FS_ADMIN_V}.tar.gz
 	https://github.com/atom/node-keytar/archive/v${NODE_KEYTAR_V}.tar.gz -> atom-node-keytar-${NODE_KEYTAR_V}.tar.gz
 	https://github.com/atom/node-nslog/archive/v${NODE_NSLOG_V}.tar.gz -> atom-node-nslog-${NODE_NSLOG_V}.tar.gz
 	https://github.com/atom/node-oniguruma/archive/v${NODE_ONIGURUMA_V}.tar.gz -> atom-node-oniguruma-${NODE_ONIGURUMA_V}.tar.gz
@@ -68,6 +70,7 @@ SRC_URI="
 BINMODS="
 		cached-run-in-this-context
 		node-ctags
+		fs-admin
 		git-utils
 		keyboard-layout
 		node-nslog
