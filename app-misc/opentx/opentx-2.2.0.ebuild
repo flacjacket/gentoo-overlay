@@ -29,5 +29,6 @@ src_compile() {
 }
 
 src_install() {
+	exeinto "/usr/bin"
 	doexe "${BUILD_DIR}"/companion22
 }
