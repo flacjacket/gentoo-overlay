@@ -15,14 +15,19 @@ KEYWORDS="~amd64"
 IUSE="+dfu +phonon"
 
 RDEPEND="
-	dev-libs/xerces-c
+	dev-qt/qtmultimedia:5
 	media-libs/libsdl
 	x11-libs/fox:1.6
 	dfu? ( app-mobilephone/dfu-util )
 	phonon? ( media-libs/phonon )"
 DEPEND="${RDEPEND}
-	dev-python/PyQt4
-	dev-vcs/subversion
+	dev-python/PyQt5
 	dev-cpp/xsd"
 
-CMAKE_USE_DIR="${S}/companion/src"
+src_compile() {
+	cmake-utils_src_compile companion22
+}
+
+src_install() {
+	doexe "${BUILD_DIR}"/companion22
+}
