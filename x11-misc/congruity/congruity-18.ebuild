@@ -4,7 +4,7 @@
 EAPI=6
 PYTHON_COMPAT=( python2_7 )
 
-inherit python-single-r1
+inherit python-single-r1 xdg-utils
 
 DESCRIPTION="GUI application for programming Logitech Harmony remote controls"
 HOMEPAGE="https://sourceforge.net/projects/congruity/"
@@ -15,21 +15,34 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="dev-python/wxpython:2.8
+DEPEND="dev-python/wxpython:3.0
 		dev-libs/libconcord[python]
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-wxpython-3.0.patch"
+	"${FILESDIR}/${PN}-login-fixes.patch"
+	"${FILESDIR}/${PN}-supported-capabilities.patch"
+	"${FILESDIR}/${PN}-fix-setun-login-url.patch"
+)
+
 src_prepare() {
-	eapply_user
+	default
 
 	python_fix_shebang congruity mhgui mhmanager.py
-
-	epatch "${FILESDIR}"/${P}-wxwidgets-2.8.patch
 }
 
 src_install() {
 	emake RUN_UPDATE_DESKTOP_DB=0 PREFIX="${EPREFIX}"/usr DESTDIR="${D}" install
 
 	dodoc README.txt Changelog
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
 }
