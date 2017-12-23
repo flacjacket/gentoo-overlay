@@ -22,7 +22,11 @@ DEPEND="
 		dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
 	)
 "
-RDEPEND="$(python_gen_cond_dep '!dev-python/typing[${PYTHON_USEDEP}]' 'python3_3' 'python3_4')"
+RDEPEND="
+	$(python_gen_cond_dep '!dev-python/typing[${PYTHON_USEDEP}]' 'python3_4')
+	dev-python/psutil[${PYTHON_USEDEP}]
+	dev-python/typed-ast[${PYTHON_USEDEP}]
+"
 
 python_compile_all() {
 	use doc && emake -C docs html
