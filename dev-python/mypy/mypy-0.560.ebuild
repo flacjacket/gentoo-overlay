@@ -6,9 +6,12 @@ PYTHON_COMPAT=( python3_{4,5,6} )
 
 inherit distutils-r1
 
+TYPESHED_VERSION="97fb265a4c80812c3205a953f3201fc909c43a44"
+
 DESCRIPTION="Optional static typing for Python"
 HOMEPAGE="http://www.mypy-lang.org/"
-SRC_URI="https://github.com/python/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/python/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+https://github.com/python/typeshed/archive/${TYPESHED_VERSION}.tar.gz -> ${PN}-typeshed-${PV}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -27,6 +30,13 @@ RDEPEND="
 	dev-python/psutil[${PYTHON_USEDEP}]
 	dev-python/typed-ast[${PYTHON_USEDEP}]
 "
+
+src_prepare() {
+	rmdir "${WORKDIR}/${P}/typeshed" || die
+	mv "${WORKDIR}/typeshed-${TYPESHED_VERSION}" "${WORKDIR}/${P}/typeshed" || die
+
+	distutils-r1_src_prepare
+}
 
 python_compile_all() {
 	use doc && emake -C docs html
