@@ -56,4 +56,3 @@ src_install() {
 	newicon -s 16 chrome/icons/default/default16.png zotero.png
 	make_desktop_entry "/opt/bin/zotero" Zotero zotero Science
 }
-
