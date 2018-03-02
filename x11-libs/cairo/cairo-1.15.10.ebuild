@@ -71,7 +71,6 @@ MULTILIB_WRAPPED_HEADERS=(
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.12.18-disable-test-suite.patch
 	"${FILESDIR}"/${PN}-respect-fontconfig.patch
-	"${FILESDIR}"/${PN}-color-glyph-source-op.patch
 )
 
 src_prepare() {
