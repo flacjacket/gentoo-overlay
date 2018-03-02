@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 IUSE=""
 RESTRICT="fetch"
 
-DEPEND="app-emulation/wine-any"
+DEPEND="app-emulation/wine-any:*"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"
