@@ -7,9 +7,12 @@ PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
 
 inherit distutils-r1
 
+MY_PV=${PV/_rc/rc}
+MY_P=${PN}-${MY_PV}
+
 DESCRIPTION="WiFi tools for linux"
 HOMEPAGE="https://github.com/rockymeza/wifi"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${MY_P}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
@@ -20,3 +23,5 @@ DEPEND="
 	dev-python/pbkdf2[${PYTHON_USEDEP}]
 	net-wireless/wireless-tools"
 RDEPEND="${DEPEND}"
+
+S="${WORKDIR}/${MY_P}"
