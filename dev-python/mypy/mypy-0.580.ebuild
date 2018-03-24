@@ -6,12 +6,12 @@ PYTHON_COMPAT=( python3_{4,5,6} )
 
 inherit distutils-r1
 
-TYPESHED_VERSION="97fb265a4c80812c3205a953f3201fc909c43a44"
+TYPESHED_VERSION="6cf97b8db203871568e7e66492fc2499191495f8"
 
 DESCRIPTION="Optional static typing for Python"
 HOMEPAGE="http://www.mypy-lang.org/"
 SRC_URI="https://github.com/python/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-https://github.com/python/typeshed/archive/${TYPESHED_VERSION}.tar.gz -> ${PN}-typeshed-${PV}.tar.gz"
+https://github.com/python/typeshed/archive/${TYPESHED_VERSION}.tar.gz -> ${PN}-typeshed-${TYPESHED_VERSION:0:7}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
