@@ -45,7 +45,7 @@ DEPEND="${RDEPEND}
 	)
 	"
 
-PATCHES=( "${FILESDIR}/${P}"-setupbase.py.patch )
+PATCHES=( "${FILESDIR}/${PN}"-5.4.0-setupbase.py.patch )
 
 python_prepare_all() {
 	sed \
