@@ -18,16 +18,17 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="doc test"
 RDEPEND="
 	>=dev-libs/mathjax-2.4
-	dev-python/jinja[${PYTHON_USEDEP}]
-	>=dev-python/terminado-0.3.3[${PYTHON_USEDEP}]
-	>=www-servers/tornado-4.0[${PYTHON_USEDEP}]
+	>=dev-python/terminado-0.8.1[${PYTHON_USEDEP}]
+	dev-python/ipykernel[${PYTHON_USEDEP}]
 	dev-python/ipython_genutils[${PYTHON_USEDEP}]
-	>=dev-python/traitlets-4.2.1[${PYTHON_USEDEP}]
+	dev-python/jinja[${PYTHON_USEDEP}]
 	>=dev-python/jupyter_core-4.4.0[${PYTHON_USEDEP}]
 	>=dev-python/jupyter_client-5.2.0[${PYTHON_USEDEP}]
-	dev-python/nbformat[${PYTHON_USEDEP}]
 	>=dev-python/nbconvert-4.2.0[${PYTHON_USEDEP}]
-	dev-python/ipykernel[${PYTHON_USEDEP}]
+	dev-python/nbformat[${PYTHON_USEDEP}]
+	dev-python/send2trash[${PYTHON_USEDEP}]
+	>=dev-python/traitlets-4.2.1[${PYTHON_USEDEP}]
+	>=www-servers/tornado-4.0[${PYTHON_USEDEP}]
 	"
 DEPEND="${RDEPEND}
 	dev-python/setuptools[${PYTHON_USEDEP}]
