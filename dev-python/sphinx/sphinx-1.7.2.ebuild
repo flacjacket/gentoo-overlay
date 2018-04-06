@@ -24,6 +24,7 @@ RDEPEND="
 	>=dev-python/docutils-0.11[${PYTHON_USEDEP}]
 	dev-python/imagesize[${PYTHON_USEDEP}]
 	>=dev-python/jinja-2.3[${PYTHON_USEDEP}]
+	dev-pythan/packaging[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.0.1-r1[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	>=dev-python/six-1.5[${PYTHON_USEDEP}]
