@@ -35,7 +35,7 @@ RDEPEND="
 	>=dev-lang/ghc-7.6.1:=
 	dev-python/six[${PYTHON_USEDEP}]
 	dev-python/cffi:=[$(python_gen_usedep 'python*')]
-	x11-proto/xcb-proto:="
+	x11-proto/xcb-proto"
 DEPEND="
 	>=dev-haskell/cabal-1.16.0
 	test? (
