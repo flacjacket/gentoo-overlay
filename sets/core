@@ -20,7 +20,7 @@ sys-fs/cryptsetup
 sys-fs/dosfstools
 sys-fs/ntfs3g
 sys-fs/xfsprogs
-sys-kernel/aufs-sources
+sys-kernel/gentoo-sources
 sys-power/acpid
 sys-process/fcron
 sys-process/htop
