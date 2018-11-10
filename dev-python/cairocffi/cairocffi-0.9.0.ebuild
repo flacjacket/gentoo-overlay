@@ -35,7 +35,6 @@ DEPEND="
 	)
 	$(python_gen_cond_dep '>=virtual/pypy-2.6.0' pypy )"
 
-
 S="${WORKDIR}/${MY_P}"
 
 python_compile_all() {
