@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-PYTHON_COMPAT=( python3_{5,6} )
+PYTHON_COMPAT=( python3_{4,5,6} )
 
 if [ "${PV}" == "9999" ]; then
 	inherit distutils-r1 git-r3
@@ -10,9 +10,9 @@ if [ "${PV}" == "9999" ]; then
 	SRC_URI=""
 else
 	inherit distutils-r1
-	TYPESHED_COMMIT="2ba90a6"
+	TYPESHED_COMMIT="94485f9"
 	SRC_URI="https://github.com/python/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-			 https://api.github.com/repos/python/typeshed/tarball/${TYPESHED_COMMIT} -> mypy-typeshed-${PV}-${TYPESHED_COMMIT}.tar.gz"
+			https://api.github.com/repos/python/typeshed/tarball/${TYPESHED_COMMIT} -> mypy-typeshed-${PV}-${TYPESHED_COMMIT}.tar.gz"
 fi
 
 DESCRIPTION="Optional static typing for Python"
@@ -46,8 +46,8 @@ src_unpack() {
 		git-r3_src_unpack
 	else
 		unpack ${A}
-		rmdir "${S}/typeshed"
-		mv "${WORKDIR}/python-typeshed-${TYPESHED_COMMIT}" "${S}/typeshed"
+		rmdir "${S}/mypy/typeshed"
+		mv "${WORKDIR}/python-typeshed-${TYPESHED_COMMIT}" "${S}/mypy/typeshed"
 	fi
 }
 
