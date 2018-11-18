@@ -18,11 +18,12 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc examples matplotlib notebook nbconvert qt5 smp test"
 
 CDEPEND="
-	dev-python/decorator[${PYTHON_USEDEP}]
+	dev-python/backcall[${PYTHON_USEDEP}]
 	>=dev-python/jedi-0.10.0[${PYTHON_USEDEP}]
 	dev-python/pexpect[${PYTHON_USEDEP}]
 	dev-python/pickleshare[${PYTHON_USEDEP}]
-	>=dev-python/prompt_toolkit-1.0.4[${PYTHON_USEDEP}]
+	>=dev-python/prompt_toolkit-2.0.0[${PYTHON_USEDEP}]
+	<dev-python/prompt_toolkit-2.1.0[${PYTHON_USEDEP}]
 	dev-python/pygments[${PYTHON_USEDEP}]
 	dev-python/pyparsing[${PYTHON_USEDEP}]
 	dev-python/simplegeneric[${PYTHON_USEDEP}]
