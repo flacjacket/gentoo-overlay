@@ -5,13 +5,12 @@ EAPI=6
 
 inherit font
 
-MY_PN="fontawesome-pro"
+MY_PN="Font-Awesome-Pro"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="The iconic font"
 HOMEPAGE="https://fontawesome.com"
-SRC_URI="https://github.com/FortAwesome/Font-Awesome-Pro/archive/${MY_P}-desktop.zip
-		https://github.com/FortAwesome/Font-Awesome-Pro/archive/${MY_P}-web.zip"
+SRC_URI="https://github.com/FortAwesome/Font-Awesome-Pro/archive/${PV}.tar.gz -> ${PN}-pro-${PV}.tar.gz"
 
 LICENSE="CC-BY-3.0 OFL-1.1"
 SLOT="0/5"
@@ -24,14 +23,13 @@ REQUIRED_USE="|| ( otf ttf )"
 DEPEND="app-arch/unzip"
 RDEPEND=""
 
-S_BASE="${WORKDIR}/${MY_PN}-${PV}"
-S="${S_BASE}"-desktop
+S="${WORKDIR}/${MY_P}"
 
 src_install() {
 	if use otf; then
-		FONT_S="${S_BASE}-desktop/otfs" FONT_SUFFIX="otf" font_src_install
+		FONT_S="${S}/otfs" FONT_SUFFIX="otf" font_src_install
 	fi
 	if use ttf; then
-		FONT_S="${S_BASE}-web/webfonts" FONT_SUFFIX="ttf" font_src_install
+		FONT_S="${S}/webfonts" FONT_SUFFIX="ttf" font_src_install
 	fi
 }
