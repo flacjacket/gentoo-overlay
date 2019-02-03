@@ -1,8 +1,8 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-PYTHON_COMPAT=( python3_{4,5,6} )
+EAPI=7
+PYTHON_COMPAT=( python3_{4,5,6,7} )
 
 if [ "${PV}" == "9999" ]; then
 	inherit distutils-r1 git-r3
@@ -10,7 +10,7 @@ if [ "${PV}" == "9999" ]; then
 	SRC_URI=""
 else
 	inherit distutils-r1
-	TYPESHED_COMMIT="94485f9"
+	TYPESHED_COMMIT="f343150"
 	SRC_URI="https://github.com/python/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 			https://api.github.com/repos/python/typeshed/tarball/${TYPESHED_COMMIT} -> mypy-typeshed-${PV}-${TYPESHED_COMMIT}.tar.gz"
 fi
@@ -25,7 +25,8 @@ IUSE="doc test"
 
 DEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	dev-python/mypy_extensions[${PYTHON_USEDEP}]
+	>=dev-python/mypy_extensions-0.4.0[${PYTHON_USEDEP}]
+	<dev-python/mypy_extensions-0.5.0[${PYTHON_USEDEP}]
 	test? ( dev-python/flake8[${PYTHON_USEDEP}] )
 	doc? (
 		dev-python/sphinx[${PYTHON_USEDEP}]
@@ -36,8 +37,8 @@ CDEPEND="
 	!dev-util/stubgen
 	>=dev-python/psutil-5.4.0[${PYTHON_USEDEP}]
 	<dev-python/psutil-5.5.0[${PYTHON_USEDEP}]
-	>=dev-python/typed-ast-1.1.0[${PYTHON_USEDEP}]
-	<dev-python/typed-ast-1.2.0[${PYTHON_USEDEP}]
+	>=dev-python/typed-ast-1.2.0[${PYTHON_USEDEP}]
+	<dev-python/typed-ast-1.3.0[${PYTHON_USEDEP}]
 	"
 
 RDEPEND="${CDEPEND}"
