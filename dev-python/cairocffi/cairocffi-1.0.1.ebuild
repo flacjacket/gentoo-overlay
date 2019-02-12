@@ -27,7 +27,7 @@ DEPEND="
 	>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]
 	dev-python/pytest-runner[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	>=dev-python/xcffib-0.3.2[${PYTHON_USEDEP}]
+	>=dev-python/xcffib-0.3.2:=[${PYTHON_USEDEP}]
 	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
 	test? (
 		${RDEPEND}
