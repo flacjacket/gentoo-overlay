@@ -20,17 +20,17 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="doc test"
 
 RDEPEND="
+	>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]
+	>=dev-python/xcffib-0.3.2[${PYTHON_USEDEP}]
 	x11-libs/cairo:0=[xcb]
 	x11-libs/gdk-pixbuf[jpeg]"
 
 DEPEND="
-	>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]
-	dev-python/pytest-runner[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	>=dev-python/xcffib-0.3.2:=[${PYTHON_USEDEP}]
 	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
 	test? (
 		${RDEPEND}
+		dev-python/pytest[${PYTHON_USEDEP}]
 	)"
 
 S="${WORKDIR}/${MY_P}"
@@ -40,7 +40,7 @@ python_compile_all() {
 }
 
 python_test() {
-	virtx py.test -v --pyargs cairocffi -o addopts= || die "testsuite failed under ${EPYTHON}"
+	virtx py.test -v --pyargs cairocffi || die "testsuite failed under ${EPYTHON}"
 }
 
 python_install_all() {
