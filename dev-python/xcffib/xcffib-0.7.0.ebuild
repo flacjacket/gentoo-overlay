@@ -1,10 +1,10 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 PYTHON_COMPAT=( python2_7 python3_{5,6,7} pypy pypy3 )
-CABAL_FEATURES="bin lib profile haddock hoogle hscolour test-suite"
+CABAL_FEATURES="lib profile haddock hoogle hscolour test-suite"
 
 inherit haskell-cabal distutils-r1
 
@@ -24,25 +24,26 @@ IUSE="test"
 
 RDEPEND="
 	dev-haskell/attoparsec:=[profile?]
-	dev-haskell/filemanip:=[profile?]
 	dev-haskell/either:=[profile?]
-	>=dev-haskell/language-python-0.5.0:=[profile?]
+	dev-haskell/filemanip:=[profile?]
+	>=dev-haskell/language-python-0.5.6:=[profile?]
 	>=dev-haskell/mtl-2.1:=[profile?]
 	>=dev-haskell/optparse-applicative-0.13:=[profile?]
 	dev-haskell/semigroups:=[profile?]
 	dev-haskell/split:=[profile?]
-	>=dev-haskell/xcb-types-0.8.0:=[profile?]
+	>=dev-haskell/xcb-types-0.10.0:=[profile?]
 	>=dev-lang/ghc-7.6.1:=
 	dev-python/six[${PYTHON_USEDEP}]
-	dev-python/cffi:=[$(python_gen_usedep 'python*')]
-	x11-base/xcb-proto"
-DEPEND="
+	>=dev-python/cffi-1.1.0:=[$(python_gen_usedep 'python*')]
+	x11-base/xcb-proto
+"
+DEPEND="${RDEPEND}
 	>=dev-haskell/cabal-1.16.0
 	test? (
-		dev-python/nose[${PYTHON_USEDEP}]
 		dev-haskell/hunit
 		dev-haskell/test-framework
 		dev-haskell/test-framework-hunit
+		dev-python/nose[${PYTHON_USEDEP}]
 	)
 "
 
