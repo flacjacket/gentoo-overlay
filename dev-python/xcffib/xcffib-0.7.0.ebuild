@@ -10,12 +10,7 @@ inherit haskell-cabal distutils-r1
 
 DESCRIPTION="A drop-in replacement for xpyb based on cffi"
 HOMEPAGE="https://github.com/tych0/xcffib"
-if [[ ${PV} == 9999* ]]; then
-	EGIT_REPO_URI="https://github.com/tych0/xcffib.git"
-	inherit git-r3
-else
-	SRC_URI="https://github.com/tych0/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-fi
+SRC_URI="https://github.com/tych0/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0/${PV}"
