@@ -1,7 +1,6 @@
 dev-python/iwlib
 dev-python/netifaces
 dev-python/numpydoc
-dev-python/pip-tools
 dev-python/psutil
 dev-python/pyudev
 dev-python/sphinxcontrib-seqdiag
