@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>haskell@gentoo.org</email>
+		<name>Gentoo Haskell</name>
+	</maintainer>
+	<longdescription>
+		A collection of various methods for splitting
+		lists into parts, akin to the \&quot;split\&quot; function
+		found in several mainstream languages. Here is
+		its tale:
+		
+		Once upon a time the standard &quot;Data.List&quot; module
+		held no function for splitting a list into parts
+		according to a delimiter.  Many a brave
+		lambda-knight strove to add such a function, but
+		their striving was in vain, for Lo, the Supreme
+		Council fell to bickering amongst themselves what
+		was to be the essential nature of the One True
+		Function which could cleave a list in twain (or
+		thrain, or any required number of parts).
+		
+		And thus came to pass the split package,
+		comprising divers functions for splitting a list
+		asunder, each according to its nature.  And the
+		Supreme Council had no longer any grounds for
+		argument, for the favored method of each was
+		contained therein.
+		
+		To get started, see the &quot;Data.List.Split&quot; module.
+	</longdescription>
+</pkgmetadata>
