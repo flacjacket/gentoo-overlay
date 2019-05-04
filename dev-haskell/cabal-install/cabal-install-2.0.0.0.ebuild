@@ -20,7 +20,7 @@ IUSE="debug-expensive-assertions debug-tracetree monolithic +network-uri parsec"
 RDEPEND=">=dev-haskell/async-2.0:= <dev-haskell/async-2.2:=
 	>=dev-haskell/base16-bytestring-0.1.1:= <dev-haskell/base16-bytestring-0.2:=
 	>=dev-haskell/bytestring-builder-0.10:= <dev-haskell/bytestring-builder-1:=
-	>=dev-haskell/cabal-2.0.1.0:= <dev-haskell/cabal-2.1:=
+	>=dev-haskell/cabal-2.0.0.0:= <dev-haskell/cabal-2.1:=
 	>=dev-haskell/cryptohash-sha256-0.11:= <dev-haskell/cryptohash-sha256-0.12:=
 	>=dev-haskell/echo-0.1.3:= <dev-haskell/echo-0.2:=
 	>=dev-haskell/edit-distance-0.2.2:= <dev-haskell/edit-distance-0.3:=
@@ -38,8 +38,8 @@ RDEPEND=">=dev-haskell/async-2.0:= <dev-haskell/async-2.2:=
 	monolithic? ( dev-haskell/pretty-show:=
 			>=dev-haskell/quickcheck-2.8.2:2=
 			dev-haskell/tagged:=
-			>=dev-haskell/tasty-0.12:=
-			>=dev-haskell/tasty-hunit-0.10:=
+			dev-haskell/tasty:=
+			dev-haskell/tasty-hunit:=
 			dev-haskell/tasty-quickcheck:= )
 	network-uri? ( >=dev-haskell/network-2.6:= <dev-haskell/network-2.7:=
 			>=dev-haskell/network-uri-2.6:= <dev-haskell/network-uri-2.7:= )
@@ -51,16 +51,16 @@ DEPEND="${RDEPEND}
 	network-uri? ( test? ( !monolithic? ( dev-haskell/pretty-show
 						>=dev-haskell/quickcheck-2.8.2
 						dev-haskell/tagged
-						>=dev-haskell/tasty-0.12
-						>=dev-haskell/tasty-hunit-0.10
+						dev-haskell/tasty
+						dev-haskell/tasty-hunit
 						dev-haskell/tasty-quickcheck ) ) )
 	!network-uri? ( monolithic? ( test? ( <dev-haskell/network-uri-2.6 ) )
 			!monolithic? ( test? ( <dev-haskell/network-uri-2.6
 						dev-haskell/pretty-show
 						>=dev-haskell/quickcheck-2.8.2
 						dev-haskell/tagged
-						>=dev-haskell/tasty-0.12
-						>=dev-haskell/tasty-hunit-0.10
+						dev-haskell/tasty
+						dev-haskell/tasty-hunit
 						dev-haskell/tasty-quickcheck ) ) )
 "
 
