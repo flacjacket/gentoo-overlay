@@ -15,20 +15,21 @@ SRC_URI="mirror://hackage/packages/archive/${PN}/${PV}/${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~x86"
-IUSE="+support_bytestring +support_deepseq +support_foundation"
+IUSE="+support_basement +support_bytestring +support_deepseq +support_foundation"
 
-RDEPEND=">=dev-lang/ghc-7.4.1:=
-	support_foundation? ( >=dev-haskell/foundation-0.0.4:=[profile?] <dev-haskell/foundation-0.0.10:=[profile?] )
+RDEPEND=">=dev-lang/ghc-8.0.1:=
+	support_basement? ( dev-haskell/basement:=[profile?] )
+	support_foundation? ( dev-haskell/basement:=[profile?] )
 "
 DEPEND="${RDEPEND}
-	>=dev-haskell/cabal-1.10
-	test? ( dev-haskell/tasty
-		dev-haskell/tasty-hunit
-		dev-haskell/tasty-quickcheck )
+	>=dev-haskell/cabal-1.24.0.0
+	test? ( >=dev-haskell/basement-0.0.7
+		dev-haskell/foundation )
 "
 
 src_configure() {
 	haskell-cabal_src_configure \
+		$(cabal_flag support_basement support_basement) \
 		$(cabal_flag support_bytestring support_bytestring) \
 		$(cabal_flag support_deepseq support_deepseq) \
 		$(cabal_flag support_foundation support_foundation)
