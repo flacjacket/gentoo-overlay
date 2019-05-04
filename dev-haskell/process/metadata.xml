@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>haskell@gentoo.org</email>
+		<name>Gentoo Haskell</name>
+	</maintainer>
+	<longdescription>
+		This package contains libraries for dealing with system processes.
+		
+		The typed-process package is a more recent take on a process API,
+		which uses this package internally. It features better binary
+		support, easier concurrency, and a more composable API. You can
+		read more about it at
+		&lt;https://haskell-lang.org/library/typed-process&gt;.
+	</longdescription>
+</pkgmetadata>
