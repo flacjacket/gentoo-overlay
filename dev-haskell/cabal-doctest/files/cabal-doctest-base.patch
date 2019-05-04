@@ -1,0 +1,11 @@
+--- a/cabal-doctest.cabal	2019-05-04 19:36:35.844654256 -0400
++++ a/cabal-doctest.cabal	2019-05-04 19:36:08.234635227 -0400
+@@ -38,7 +38,7 @@
+   other-modules:
+   other-extensions:
+   build-depends:
+-    base >=4.3 && <4.11,
++    base >=4.3 && <4.13,
+     Cabal >= 1.10 && <2.1,
+     filepath,
+     directory
