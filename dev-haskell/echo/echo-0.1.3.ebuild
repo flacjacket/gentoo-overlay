@@ -23,6 +23,8 @@ RDEPEND=">=dev-lang/ghc-7.4.1:=
 "
 DEPEND="${RDEPEND}
 	>=dev-haskell/cabal-1.10
+	>=dev-haskell/process-1.0.1.1
+	<dev-haskell/process-1.7
 "
 
 src_configure() {
