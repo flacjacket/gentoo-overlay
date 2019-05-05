@@ -1,8 +1,13 @@
 diff --git a/Makefile b/Makefile
-index 2e8f035..cf85262 100644
+index 2e8f035..2dbcf1a 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -17,6 +17,10 @@ xcffib: module/*.py
+@@ -13,10 +13,14 @@ GEN=$(CABAL) new-run exe:xcffibgen --
+ 
+ # you should have xcb-proto installed to run this
+ xcffib: module/*.py
+-	$(GEN) --input $(XCBDIR) --output ./xcffib
++	dist/build/xcffibgen/xcffibgen --input $(XCBDIR) --output ./xcffib
  	cp ./module/*py ./xcffib/
  	sed -i "s/__xcb_proto_version__ = .*/__xcb_proto_version__ = \"${XCBVER}\"/" xcffib/__init__.py
  	@if [ "$(TRAVIS)" = true ]; then python xcffib/ffi_build.py; else python xcffib/ffi_build.py > /dev/null 2>&1 || python3 xcffib/ffi_build.py; fi

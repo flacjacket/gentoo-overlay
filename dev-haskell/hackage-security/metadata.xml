@@ -5,6 +5,9 @@
 		<email>haskell@gentoo.org</email>
 		<name>Gentoo Haskell</name>
 	</maintainer>
+	<use>
+		<flag name="network-uri">Get Network.URI from the network-uri package.</flag>
+	</use>
 	<longdescription>
 		The hackage security library provides both server and
 		client utilities for securing the Hackage package server
@@ -23,5 +26,7 @@
 		clients (the typical example being @cabal@), and
 		&quot;Hackage.Security.Server&quot; is the main entry point for
 		servers (the typical example being @hackage-server@).
+		
+		This is a beta release.
 	</longdescription>
 </pkgmetadata>
