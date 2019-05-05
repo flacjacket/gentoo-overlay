@@ -37,5 +37,5 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	haskell-cabal_src_configure \
-		$(cabal_flag integer-simple integer-simple)
+		--flags=-integer-simple
 }
