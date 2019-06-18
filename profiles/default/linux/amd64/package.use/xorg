@@ -1,6 +1,0 @@
-app-crypt/pinentry -gtk -qt4
-dev-libs/libxml2 python
-dev-util/cmake -qt4
-dev-vcs/git -gtk
-net-wireless/wpa_supplicant -qt4
-x11-base/xorg-server kdrive xephyr xvfb

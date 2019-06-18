@@ -1,8 +1,7 @@
-app-emulation
 app-misc
 dev-haskell
 dev-libs
 dev-python
-dev-ruby
-sys-apps
+media-fonts
 x11-misc
+x11-wm
