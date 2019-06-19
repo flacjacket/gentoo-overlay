@@ -26,10 +26,11 @@ DEPEND="${CDEPEND}
 	)
 "
 RDEPEND="${CDEPEND}
-	>=dev-python/tqdm-4.14[${PYTHON_USEDEP}]
 	>=dev-python/pkginfo-1.4.2[${PYTHON_USEDEP}]
+	>=dev-python/readme_renderer-21.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.5.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-toolbelt-0.8.0[${PYTHON_USEDEP}]
+	>=dev-python/tqdm-4.14[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep 'dev-python/pyblake2[${PYTHON_USEDEP}]' python{2_7,3_4,3_5})
 "
 
