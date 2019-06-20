@@ -35,8 +35,8 @@ CDEPEND="
 	!dev-util/stubgen
 	>=dev-python/psutil-5.4.0[${PYTHON_USEDEP}]
 	<dev-python/psutil-5.5.0[${PYTHON_USEDEP}]
-	>=dev-python/typed-ast-1.3.1[${PYTHON_USEDEP}]
-	<dev-python/typed-ast-1.4.0[${PYTHON_USEDEP}]
+	>=dev-python/typed-ast-1.4.0[${PYTHON_USEDEP}]
+	<dev-python/typed-ast-1.5.0[${PYTHON_USEDEP}]
 	>=dev-python/mypy_extensions-0.4.0[${PYTHON_USEDEP}]
 	<dev-python/mypy_extensions-0.5.0[${PYTHON_USEDEP}]
 	"
