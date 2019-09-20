@@ -33,12 +33,11 @@ DEPEND="
 "
 CDEPEND="
 	!dev-util/stubgen
-	>=dev-python/psutil-5.4.0[${PYTHON_USEDEP}]
-	<dev-python/psutil-5.5.0[${PYTHON_USEDEP}]
+	dev-python/psutil[${PYTHON_USEDEP}]
 	>=dev-python/typed-ast-1.4.0[${PYTHON_USEDEP}]
 	<dev-python/typed-ast-1.5.0[${PYTHON_USEDEP}]
-	>=dev-python/mypy_extensions-0.4.0[${PYTHON_USEDEP}]
 	<dev-python/mypy_extensions-0.5.0[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '>=dev-python/typing-extensions-3.7.4[${PYTHON_USEDEP}]' python3_{5,6} )
 	"
 
 RDEPEND="${CDEPEND}"
