@@ -10,7 +10,7 @@ if [ "${PV}" == "9999" ]; then
 	SRC_URI=""
 else
 	inherit distutils-r1
-	TYPESHED_COMMIT="01c2fa5"
+	TYPESHED_COMMIT="f5c107c"
 	SRC_URI="https://github.com/python/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 			https://api.github.com/repos/python/typeshed/tarball/${TYPESHED_COMMIT} -> mypy-typeshed-${PV}-${TYPESHED_COMMIT}.tar.gz"
 fi
