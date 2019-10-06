@@ -12,8 +12,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="
-sys-apps/yarn"
+DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
