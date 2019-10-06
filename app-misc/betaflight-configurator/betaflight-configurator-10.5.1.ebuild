@@ -5,7 +5,7 @@ EAPI=7
 
 DESCRIPTION="Configuration tool for the Betaflight firmware"
 HOMEPAGE="https://github.com/betaflight/betaflight-configurator"
-SRC_URI="https://github.com/betaflight/betaflight-configurator/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/betaflight/${PN}/releases/download/${PV}/${PN}_${PV}_linux64.zip -> ${P}.zip"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -17,15 +17,17 @@ sys-apps/yarn"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
+S="${WORKDIR}/Betaflight Configurator"
+
 src_compile() {
-	yarn install || die
-	yarn gulp apps --linux64 || die
+	:
 }
 
 src_install() {
 	insinto /usr/share/${PN}
-	doins -r apps/betaflight-configurator/linux64/*
+	doins -r *
 
 	mkdir "${D}"/usr/bin/ || die
 	ln -s /usr/share/${PN}/betaflight-configurator "${D}"/usr/bin/betaflight-configurator || die
+	chmod +x "${D}"/usr/share/${PN}/betaflight-configurator || die
 }
