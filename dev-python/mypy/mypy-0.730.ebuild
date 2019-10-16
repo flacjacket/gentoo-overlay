@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 PYTHON_COMPAT=( python3_{5,6,7} )
 
 if [ "${PV}" == "9999" ]; then
@@ -10,7 +10,7 @@ if [ "${PV}" == "9999" ]; then
 	SRC_URI=""
 else
 	inherit distutils-r1
-	TYPESHED_COMMIT="f5c107c"
+	TYPESHED_COMMIT="b969ead"
 	SRC_URI="https://github.com/python/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 			https://api.github.com/repos/python/typeshed/tarball/${TYPESHED_COMMIT} -> mypy-typeshed-${PV}-${TYPESHED_COMMIT}.tar.gz"
 fi
@@ -50,6 +50,12 @@ src_unpack() {
 		rmdir "${S}/mypy/typeshed"
 		mv "${WORKDIR}/python-typeshed-${TYPESHED_COMMIT}" "${S}/mypy/typeshed"
 	fi
+}
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	sed -i "s/typing_extensions>=3.7.4/typing_extensions>=3.7.4 ; python_version<\"3.7\"/" setup.py || die
 }
 
 python_compile_all() {
