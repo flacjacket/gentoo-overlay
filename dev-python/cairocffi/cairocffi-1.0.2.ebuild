@@ -18,12 +18,14 @@ LICENSE="BSD"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="doc test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]' 'python*')
 	>=dev-python/xcffib-0.3.2[${PYTHON_USEDEP}]
 	x11-libs/cairo:0=[xcb]
-	x11-libs/gdk-pixbuf[jpeg]"
+	x11-libs/gdk-pixbuf[jpeg]
+	$(python_gen_cond_dep '>=virtual/pypy-2.6.0' pypy )"
 
 DEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]
@@ -31,7 +33,13 @@ DEPEND="
 	test? (
 		${RDEPEND}
 		dev-python/pytest[${PYTHON_USEDEP}]
-	)"
+	)
+	$(python_gen_cond_dep '>=virtual/pypy-2.6.0' pypy )"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.8.0-tests.patch
+	"${FILESDIR}"/${P}-test-deps.patch
+)
 
 S="${WORKDIR}/${MY_P}"
 
@@ -40,7 +48,7 @@ python_compile_all() {
 }
 
 python_test() {
-	virtx py.test -v --pyargs cairocffi || die "testsuite failed under ${EPYTHON}"
+	virtx py.test -v --pyargs cairocffi
 }
 
 python_install_all() {
