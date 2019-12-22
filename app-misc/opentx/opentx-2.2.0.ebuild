@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -17,7 +17,7 @@ IUSE="+dfu +phonon"
 RDEPEND="
 	dev-qt/qtmultimedia:5
 	media-libs/libsdl
-	x11-libs/fox:1.6
+	x11-libs/fox:*
 	dfu? ( app-mobilephone/dfu-util )
 	phonon? ( media-libs/phonon )"
 DEPEND="${RDEPEND}

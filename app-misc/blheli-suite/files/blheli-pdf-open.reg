@@ -1,5 +1,0 @@
-[HKEY_CLASSES_ROOT\.pdf]
-@="PDFfile"
-"Content Type"="application/pdf"
-[HKEY_CLASSES_ROOT\PDFfile\Shell\Open\command]
-@="winebrowser \"%1\""

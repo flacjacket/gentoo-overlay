@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -6,13 +6,11 @@ EAPI=6
 inherit font
 
 MY_PN="Font-Awesome-Pro"
-MY_P="${MY_PN}-${PV}"
-
 DESCRIPTION="The iconic font"
 HOMEPAGE="https://fontawesome.com"
 SRC_URI="https://github.com/FortAwesome/Font-Awesome-Pro/archive/${PV}.tar.gz -> ${PN}-pro-${PV}.tar.gz"
 
-LICENSE="CC-BY-3.0 OFL-1.1"
+LICENSE="CC-BY-4.0 OFL-1.1"
 SLOT="0/5"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="+otf +ttf"
@@ -20,10 +18,7 @@ IUSE="+otf +ttf"
 RESTRICT="fetch"
 REQUIRED_USE="|| ( otf ttf )"
 
-DEPEND="app-arch/unzip"
-RDEPEND=""
-
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_install() {
 	if use otf; then
