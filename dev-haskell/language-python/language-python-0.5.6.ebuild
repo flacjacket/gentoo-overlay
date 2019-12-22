@@ -19,7 +19,6 @@ IUSE=""
 
 RDEPEND=">=dev-haskell/monads-tf-0.1:=[profile?] <dev-haskell/monads-tf-0.2:=[profile?]
 	>=dev-haskell/utf8-string-1:=[profile?] <dev-haskell/utf8-string-2:=[profile?]
-	>=dev-haskell/containers-0.5:=[profile?] <dev-haskell/containers-0.6:=[profile?]
 	>=dev-lang/ghc-7.10.1:=
 "
 DEPEND="${RDEPEND}
@@ -27,3 +26,5 @@ DEPEND="${RDEPEND}
 	>=dev-haskell/cabal-1.22.2.0
 	dev-haskell/happy
 "
+
+PATCHES=("${FILESDIR}"/${PN}-containers.patch)
