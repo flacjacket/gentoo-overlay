@@ -1,7 +1,7 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 PYTHON_COMPAT=( python3_{6,7} )
 
 inherit distutils-r1 virtualx
@@ -26,22 +26,29 @@ RDEPEND="
 	x11-libs/cairo[xcb]
 	x11-libs/pango
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	>=dev-python/cairocffi-0.7:=[${PYTHON_USEDEP}]
-	>=dev-python/six-1.4.1[${PYTHON_USEDEP}]
-	>=dev-python/xcffib-0.3.2:=[${PYTHON_USEDEP}]
-	dev-python/cffi:=[${PYTHON_USEDEP}]
+	>=dev-python/cairocffi-0.9.0[${PYTHON_USEDEP}]
+	>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]
+	>=dev-python/xcffib-0.8.1:=[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}
 	test? (
-		dev-python/nose[${PYTHON_USEDEP}]
-		x11-base/xorg-server[kdrive]
+		dev-python/pytest[${PYTHON_USEDEP}]
+		dev-python/pytest-cov[${PYTHON_USEDEP}]
+		dev-python/xvfbwrapper[${PYTHON_USEDEP}]
+		x11-base/xorg-server[kdrive,xvfb,xephyr]
+		x11-apps/xeyes
+		x11-apps/xcalc
+		x11-apps/xclock
 	)
 "
 
+# display retry backoff slowness and failures
 RESTRICT="test"
 
 python_test() {
-	VIRTUALX_COMMAND="nosetests" virtualmake
+	# force usage of built module
+	rm -rf "${S}"/libqtile || die
+	PYTHONPATH="${BUILD_DIR}/lib" py.test -v "${S}"/test || die "tests failed under ${EPYTHON}"
 }
 
 python_install_all() {
