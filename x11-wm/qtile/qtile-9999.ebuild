@@ -38,6 +38,7 @@ DEPEND="${RDEPEND}
 		x11-apps/xeyes
 		x11-apps/xcalc
 		x11-apps/xclock
+		x11-terms/xterm
 	)
 "
 
