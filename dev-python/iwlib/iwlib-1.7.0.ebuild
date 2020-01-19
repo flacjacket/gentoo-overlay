@@ -7,6 +7,7 @@ PYTHON_COMPAT=( python2_7 python3_{6,7,8} )
 inherit distutils-r1
 
 MY_PN="python-iwlib"
+MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="iwlib library for Python, for interacting with wireless devices"
 HOMEPAGE="https://github.com/nhoad/python-iwlib"
@@ -25,3 +26,5 @@ IUSE=""
 
 DEPEND="virtual/python-cffi[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
+
+S="${WORKDIR}/${MY_P}"
