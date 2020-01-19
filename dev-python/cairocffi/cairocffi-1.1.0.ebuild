@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_{5,6,7,8} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 inherit distutils-r1 virtualx
 
@@ -23,18 +23,16 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	$(python_gen_cond_dep '>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]' 'python*')
 	>=dev-python/xcffib-0.3.2[${PYTHON_USEDEP}]
-	x11-libs/cairo:0=[X]
-	x11-libs/gdk-pixbuf[jpeg]
-	$(python_gen_cond_dep '>=virtual/pypy-2.6.0' pypy )"
+	x11-libs/cairo:0=[X,xcb(+)]
+	x11-libs/gdk-pixbuf[jpeg]"
 
-DEPEND="
+BDEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
 	test? (
 		${RDEPEND}
 		dev-python/pytest[${PYTHON_USEDEP}]
-	)
-	$(python_gen_cond_dep '>=virtual/pypy-2.6.0' pypy )"
+	)"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.8.0-tests.patch
