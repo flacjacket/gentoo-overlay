@@ -5,5 +5,7 @@ media-fonts/inconsolata
 media-fonts/ipamonafont
 media-fonts/ja-ipafonts
 media-fonts/lohit-fonts
-media-fonts/symbola
+media-fonts/noto
+media-fonts/noto-emoji
+media-fonts/quivira
 media-fonts/terminus-font
