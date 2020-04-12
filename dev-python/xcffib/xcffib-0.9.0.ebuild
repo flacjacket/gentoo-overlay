@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python2_7 python3_{5,6,7,8} pypy pypy3 )
+PYTHON_COMPAT=( python3_{6,7,8} pypy3 )
 CABAL_FEATURES="lib profile haddock hoogle hscolour test-suite"
 
 inherit haskell-cabal distutils-r1

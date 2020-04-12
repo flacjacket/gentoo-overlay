@@ -1,8 +1,8 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-PYTHON_COMPAT=( python2_7 python3_{5,6} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 inherit distutils-r1
 
@@ -19,7 +19,7 @@ DEPEND=""
 RDEPEND="
 	>=dev-python/blockdiag-1.5.0[${PYTHON_USEDEP}]
 	>=dev-python/seqdiag-0.9.3[${PYTHON_USEDEP}]
-	>=dev-python/sphinx-0.6[${PYTHON_USEDEP}]"
+	>=dev-python/sphinx-2.0[${PYTHON_USEDEP}]"
 
 python_prepare_all() {
 	sed -e '/include_package_data=True/d' -i setup.py || die
