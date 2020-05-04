@@ -26,6 +26,7 @@ RDEPEND="
 	x11-libs/cairo[X]
 	x11-libs/pango
 	dev-python/setuptools[${PYTHON_USEDEP}]
+	dev-python/setuptools_scm[${PYTHON_USEDEP}]
 	>=dev-python/cairocffi-0.9.0[${PYTHON_USEDEP}]
 	>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]
 	>=dev-python/xcffib-0.8.1:=[${PYTHON_USEDEP}]
