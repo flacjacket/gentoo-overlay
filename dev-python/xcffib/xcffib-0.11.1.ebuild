@@ -24,7 +24,6 @@ RDEPEND="
 	>=dev-haskell/language-python-0.5.6:=[profile?]
 	>=dev-haskell/mtl-2.1:=[profile?]
 	>=dev-haskell/optparse-applicative-0.13:=[profile?]
-	dev-haskell/semigroups:=[profile?]
 	dev-haskell/split:=[profile?]
 	>=dev-haskell/xcb-types-0.10.0:=[profile?]
 	>=dev-lang/ghc-7.6.1:=
