@@ -1,10 +1,11 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 PYTHON_COMPAT=( python3_{6..9} )
+DISTUTILS_SINGLE_IMPL=1
 
-inherit python-single-r1 xdg-utils
+inherit distutils-r1 xdg-utils
 
 DESCRIPTION="GUI application for programming Logitech Harmony remote controls"
 HOMEPAGE="https://sourceforge.net/projects/congruity/"
@@ -15,27 +16,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="dev-python/wxpython
-	    dev-python/suds
-		dev-libs/libconcord[python]
+DEPEND="
+	dev-python/wxpython[${PYTHON_SINGLE_USEDEP}]
+	dev-python/suds[${PYTHON_SINGLE_USEDEP}]
+	dev-libs/libconcord[python,${PYTHON_SINGLE_USEDEP}]
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-wxpython-3.0.patch"
-	"${FILESDIR}/${PN}-login-fixes.patch"
-	"${FILESDIR}/${PN}-supported-capabilities.patch"
-	"${FILESDIR}/${PN}-fix-setun-login-url.patch"
-)
-
-src_prepare() {
-	default
-
-	python_fix_shebang congruity mhgui mhmanager.py
-}
-
 src_install() {
-	emake RUN_UPDATE_DESKTOP_DB=0 PREFIX="${EPREFIX}"/usr DESTDIR="${D}" install
+	distutils-r1_src_install
 
 	dodoc README.txt Changelog
 }
@@ -46,4 +35,8 @@ pkg_postinst() {
 
 pkg_postrm() {
 	xdg_desktop_database_update
+}
+
+python_install() {
+    distutils-r1_python_install --skip-update-desktop-db
 }
