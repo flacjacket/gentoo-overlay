@@ -2,7 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <use>
-  <flag name="consolekit">Use <pkg>sys-auth/consolekit</pkg> support</flag>
   <flag name="usbnet-headers">Keep extra usbnet headers</flag>
 </use>
 </pkgmetadata>
