@@ -21,7 +21,7 @@ RDEPEND="
 	$(python_gen_cond_dep 'dev-python/dataclasses[${PYTHON_USEDEP}]' python3_6)
 	>=dev-python/pywayland-0.1.1[${PYTHON_USEDEP}]
 	>=dev-python/xkbcommon-0.2[${PYTHON_USEDEP}]
-	>=gui-libs/wlroots-0.11.0"
+	>=gui-libs/wlroots-0.11.0:="
 
 BDEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]"
