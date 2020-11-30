@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -17,9 +17,11 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="
-	dev-python/wxpython[${PYTHON_SINGLE_USEDEP}]
-	dev-python/suds[${PYTHON_SINGLE_USEDEP}]
-	dev-libs/libconcord[python,${PYTHON_SINGLE_USEDEP}]
+	$(python_gen_cond_dep '
+		dev-python/wxpython[${PYTHON_USEDEP}]
+		dev-python/suds[${PYTHON_USEDEP}]
+		dev-libs/libconcord[python,${PYTHON_USEDEP}]
+	')
 "
 RDEPEND="${DEPEND}"
 
@@ -38,5 +40,5 @@ pkg_postrm() {
 }
 
 python_install() {
-    distutils-r1_python_install --skip-update-desktop-db
+	distutils-r1_python_install --skip-update-desktop-db
 }
