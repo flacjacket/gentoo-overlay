@@ -22,13 +22,19 @@ RDEPEND="
 	>=dev-python/xcffib-0.3.2[${PYTHON_USEDEP}]
 	x11-libs/cairo:0=[X,xcb(+)]
 	x11-libs/gdk-pixbuf[jpeg]"
+BDEPEND="
+	test? ( dev-python/numpy[${PYTHON_USEDEP}] )"
 
 distutils_enable_tests pytest
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.8.0-tests.patch
-	"${FILESDIR}"/${PN}-1.0.2-test-deps.patch
 )
+
+src_prepare() {
+	sed -i -e '/pytest-/d' -e '/addopts/d' setup.cfg || die
+	distutils-r1_src_prepare
+}
 
 python_test() {
 	virtx pytest -vv --pyargs cairocffi
