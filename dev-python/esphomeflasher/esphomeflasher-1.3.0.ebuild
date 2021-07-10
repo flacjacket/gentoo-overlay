@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	$(python_gen_cond_dep '
-		dev-embedded/esptool[${PYTHON_SINGLE_USEDEP}]
+		~dev-embedded/esptool-2.8[${PYTHON_SINGLE_USEDEP}]
 		dev-python/wxpython[${PYTHON_MULTI_USEDEP}]
 		dev-python/requests[${PYTHON_MULTI_USEDEP}]
 	')
