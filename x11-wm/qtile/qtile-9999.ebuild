@@ -20,7 +20,7 @@ HOMEPAGE="http://qtile.org/"
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="test"
+IUSE="test +wayland"
 # docs require sphinxcontrib-blockdiag and sphinxcontrib-seqdiag
 
 RDEPEND="
@@ -31,6 +31,9 @@ RDEPEND="
 	>=dev-python/cairocffi-0.9.0[${PYTHON_USEDEP}]
 	>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]
 	>=dev-python/xcffib-0.8.1:=[${PYTHON_USEDEP}]
+	wayland? (
+		dev-python/pywlroots[${PYTHON_USEDEP}]
+	)
 "
 DEPEND="${RDEPEND}
 	test? (
@@ -59,6 +62,9 @@ python_install_all() {
 
 	insinto /usr/share/xsessions
 	doins resources/qtile.desktop
+
+	insinto /usr/share/wayland-sessions
+	doins "${FILESDIR}"/qtile.desktop
 
 	exeinto /etc/X11/Sessions
 	newexe "${FILESDIR}"/${PN}-session ${PN}
