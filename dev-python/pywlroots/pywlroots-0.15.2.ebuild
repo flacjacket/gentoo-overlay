@@ -14,7 +14,14 @@ SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="+xwayland"
+
+RDEPEND="
+	xwayland? (
+		x11-base/xwayland
+	)
+"
+DEPEND="${RDEPEND}"
 
 RDEPEND="
 	$(python_gen_cond_dep '>=dev-python/cffi-1.12.0:=[${PYTHON_USEDEP}]' 'python*')
