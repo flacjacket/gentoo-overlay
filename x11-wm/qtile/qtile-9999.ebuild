@@ -39,7 +39,7 @@ DEPEND="${RDEPEND}
 	test? (
 		dev-python/pytest[${PYTHON_USEDEP}]
 		dev-python/pytest-cov[${PYTHON_USEDEP}]
-		x11-base/xorg-server[kdrive,xvfb,xephyr]
+		x11-base/xorg-server[xvfb,xephyr]
 		x11-apps/xeyes
 		x11-apps/xcalc
 		x11-apps/xclock
