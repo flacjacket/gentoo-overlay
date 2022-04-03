@@ -1,11 +1,10 @@
 # Copyright 2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} ) # apps work with 3_9 but test depend is not fulfilled
+PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_SINGLE_IMPL=1
-DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
@@ -21,13 +20,13 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	$(python_gen_cond_dep '
-		dev-python/ecdsa[${PYTHON_MULTI_USEDEP}]
-		dev-python/pyaes[${PYTHON_MULTI_USEDEP}]
-		>=dev-python/pyserial-3.0[${PYTHON_MULTI_USEDEP}]
+		dev-python/ecdsa[${PYTHON_USEDEP}]
+		dev-python/pyaes[${PYTHON_USEDEP}]
+		>=dev-python/pyserial-3.0[${PYTHON_USEDEP}]
 	')
 "
 BDEPEND="
-	test? ( $(python_gen_cond_dep 'dev-python/pyelftools[${PYTHON_MULTI_USEDEP}]') )
+	test? ( $(python_gen_cond_dep 'dev-python/pyelftools[${PYTHON_USEDEP}]') )
 "
 
 src_prepare() {
