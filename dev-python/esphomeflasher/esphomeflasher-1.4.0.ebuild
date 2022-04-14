@@ -10,7 +10,8 @@ inherit distutils-r1
 
 DESCRIPTION="Simple GUI tool to flash ESPs over USB"
 HOMEPAGE="https://esphome.io/"
-SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/esphome/${PN}/archive/${PV}.tar.gz"
+S="${WORKDIR}/esphome-flasher-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
@@ -18,7 +19,7 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	$(python_gen_cond_dep '
-		~dev-embedded/esptool-2.8[${PYTHON_SINGLE_USEDEP}]
+		~dev-embedded/esptool-3.2[${PYTHON_SINGLE_USEDEP}]
 		dev-python/wxpython[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
 	')
