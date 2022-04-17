@@ -34,3 +34,7 @@ RDEPEND="
 
 BDEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-no_version_check.patch
+)
