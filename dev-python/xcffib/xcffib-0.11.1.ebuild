@@ -45,6 +45,7 @@ src_prepare() {
 	cabal-mksetup
 
 	eapply "${FILESDIR}"/${PN}-nocabal.patch
+	eapply "${FILESDIR}"/${P}-length.patch
 	eapply_user
 }
 
