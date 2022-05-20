@@ -1,0 +1,19 @@
+diff --git a/setup.py b/setup.py
+index b4e9b8f..07de5b0 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,5 +1,4 @@
+ from setuptools import setup
+-import pypandoc
+ import fontawesome
+ 
+ REL_VERSION = '1'
+@@ -9,7 +8,7 @@ setup(
+     packages=['fontawesome'],
+     version=fontawesome.VERSION + '-' + REL_VERSION,
+     description='The Font Awesome icon set for python',
+-    long_description=pypandoc.convert_file('readme.md', 'rst'),
++    long_description='readme.md',
+     license='Code: Apache License, Version 2.0, Icons: SIL OFL 1.1',
+     author='Justin Buchanan',
+     author_email='justbuchanan@gmail.com',
