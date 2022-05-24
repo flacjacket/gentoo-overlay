@@ -7,10 +7,8 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..11} )
 inherit distutils-r1
 
-DESCRIPTION=""
-HOMEPAGE="
-	https://pypi.org/project/fontawesome/
-"
+DESCRIPTION="The Font Awesome icon set for python"
+HOMEPAGE="https://pypi.org/project/fontawesome/"
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.post1.tar.gz"
 
 LICENSE="Apache-2.0"

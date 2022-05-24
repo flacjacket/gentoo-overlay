@@ -5,4 +5,7 @@
         <email>sean.v.775@gmail.com</email>
         <name>Sean Vig</name>
     </maintainer>
+	<use>
+		<flag name="xwayland">Enable ability support native X11 applications</flag>
+	</use>
 </pkgmetadata>

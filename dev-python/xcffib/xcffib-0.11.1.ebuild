@@ -37,7 +37,7 @@ DEPEND="${RDEPEND}
 		dev-haskell/hunit
 		dev-haskell/test-framework
 		dev-haskell/test-framework-hunit
-		dev-python/nose[${PYTHON_USEDEP}]
+		dev-python/pytest[${PYTHON_USEDEP}]
 	)
 "
 

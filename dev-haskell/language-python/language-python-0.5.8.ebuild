@@ -9,7 +9,7 @@ CABAL_FEATURES="lib profile haddock hoogle hscolour"
 inherit haskell-cabal
 
 DESCRIPTION="Parsing and pretty printing of Python code. "
-HOMEPAGE="http://github.com/bjpop/language-python "
+HOMEPAGE="https://github.com/bjpop/language-python "
 SRC_URI="https://hackage.haskell.org/package/${P}/${P}.tar.gz"
 
 LICENSE="BSD"
