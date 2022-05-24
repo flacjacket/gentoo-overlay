@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Simple GUI tool to flash ESPs over USB"
 HOMEPAGE="https://esphome.io/"
-SRC_URI="https://github.com/esphome/${PN}/archive/${PV}.tar.gz"
+SRC_URI="https://github.com/esphome/${PN}/archive/v${PV}.tar.gz"
 S="${WORKDIR}/esphome-flasher-${PV}"
 
 LICENSE="MIT"
