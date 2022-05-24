@@ -1,0 +1,39 @@
+name: Run Repoman
+on:
+  push:
+jobs:
+  run_repoman:
+    name: Run Repoman
+    runs-on: ubuntu-latest
+    env:
+      python-version: "pypy-3.8"
+      portage-version: "3.0.30"
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ env.python-version }}
+      - name: Install dependencies
+        run: pip install lxml pyyaml
+      - name: Setup environment
+        run: |
+          sudo chmod a+rwX /etc/passwd /etc/group /etc /var /var/cache
+          mkdir -p /etc/portage /var/cache/distfiles /var/db/repos/gentoo
+          wget -qO - "https://github.com/gentoo/portage/archive/portage-${PORTAGE_VER}.tar.gz" | tar xz
+          wget -qO - "https://github.com/gentoo-mirror/gentoo/archive/master.tar.gz" | tar xz -C /var/db/repos/gentoo --strip-components=1
+          echo "portage:x:250:250:portage:/var/tmp/portage:/bin/false" >> /etc/passwd
+          echo "portage::250:portage,travis" >> /etc/group
+          wget "https://www.gentoo.org/dtd/metadata.dtd" -O /var/cache/distfiles/metadata.dtd
+          ln -s $(pwd)/portage-portage-${PORTAGE_VER}/cnf/repos.conf /etc/portage/repos.conf
+          ln -s /var/db/repos/gentoo/profiles/default/linux/amd64/17.0 /etc/portage/make.profile
+        env:
+          PORTAGE_VER: ${{ env.portage-version }}
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          path: "overlay"
+      - name: Run Repoman
+        run: python ../portage-portage-${PORTAGE_VER}/repoman/bin/repoman full -d
+        working-directory: ./overlay
+        env:
+          PORTAGE_VER: ${{ env.portage-version }}
