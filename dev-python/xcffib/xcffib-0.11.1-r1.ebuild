@@ -4,6 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} pypy3 )
+DISTUTILS_USE_PEP517=setuptools
 CABAL_FEATURES="lib profile haddock hoogle hscolour test-suite"
 
 inherit haskell-cabal distutils-r1
@@ -37,9 +38,12 @@ DEPEND="${RDEPEND}
 		dev-haskell/hunit
 		dev-haskell/test-framework
 		dev-haskell/test-framework-hunit
-		dev-python/pytest[${PYTHON_USEDEP}]
+		x11-base/xorg-server[xvfb]
+		x11-apps/xeyes
 	)
 "
+
+distutils_enable_tests pytest
 
 src_prepare() {
 	cabal-mksetup
