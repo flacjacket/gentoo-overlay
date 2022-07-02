@@ -6,11 +6,11 @@ jobs:
     name: Run Repoman
     runs-on: ubuntu-latest
     env:
-      python-version: "pypy-3.8"
+      python-version: "pypy-3.9"
       portage-version: "3.0.30"
     steps:
       - name: Setup Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ env.python-version }}
       - name: Install dependencies
