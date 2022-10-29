@@ -4,16 +4,13 @@ dev-python/gmpy
 dev-python/ipython
 dev-python/ipywidgets
 dev-python/jupyter_console
-dev-python/nose
 dev-python/notebook
 dev-python/numpy
 dev-python/pandas
 dev-python/pytest-cov
 dev-python/qtconsole
+dev-python/scipy
 dev-python/sphinx
 dev-python/sympy
 dev-python/twine
-dev-python/virtualenvwrapper
 dev-python/wheel
-sci-libs/scikits_learn
-sci-libs/scipy

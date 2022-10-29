@@ -8,9 +8,6 @@ media-gfx/inkscape
 media-gfx/scrot
 media-video/mplayer
 net-irc/weechat
-net-misc/dropbox
-net-vpn/openconnect
 
-@firefox
 @fonts
 @qtile

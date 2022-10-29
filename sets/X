@@ -1,4 +1,5 @@
 x11-apps/xclock
 x11-apps/xeyes
-x11-base/xorg-x11
+x11-base/xorg-apps
+x11-base/xorg-fonts
 x11-terms/xterm
