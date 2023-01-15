@@ -1,12 +1,14 @@
 diff --git a/Makefile b/Makefile
-index 7a06b45..fae0757 100644
+index d1d62f6..7712b32 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -13,11 +13,15 @@ GEN=$(CABAL) new-run exe:xcffibgen --
+@@ -12,12 +12,16 @@ CABAL=cabal --config-file=./cabal.config
+ GEN=$(CABAL) new-run -j$(NCPUS) exe:xcffibgen --
  
  # you should have xcb-proto installed to run this
- xcffib: module/*.py
+-xcffib: module/*.py xcffib.cabal $(shell find . -path ./test -prune -false -o -name \*.hs)
 -	$(GEN) --input $(XCBDIR) --output ./xcffib
++xcffib: module/*.py $(shell find . -path ./test -prune -false -o -name \*.hs)
 +	LD_LIBRARY_PATH=dist/build dist/build/xcffibgen/xcffibgen --input $(XCBDIR) --output ./xcffib
  	cp ./module/*py ./xcffib/
  	touch ./xcffib/py.typed
