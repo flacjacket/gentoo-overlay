@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} pypy3 )
+PYTHON_COMPAT=( python3_1{0..2} pypy3 )
 DISTUTILS_USE_PEP517=setuptools
 CABAL_FEATURES="lib profile haddock hoogle hscolour test-suite"
 
@@ -26,7 +26,7 @@ RDEPEND="
 	>=dev-haskell/mtl-2.1:=[profile?]
 	>=dev-haskell/optparse-applicative-0.13:=[profile?]
 	dev-haskell/split:=[profile?]
-	>=dev-haskell/xcb-types-0.12.0:=[profile?]
+	>=dev-haskell/xcb-types-0.13.0:=[profile?]
 	>=dev-lang/ghc-7.6.1:=
 	dev-python/six[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '>=dev-python/cffi-1.1:=[${PYTHON_USEDEP}]' 'python*')
