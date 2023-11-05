@@ -1,9 +1,9 @@
 diff --git a/Makefile b/Makefile
-index d1d62f6..7712b32 100644
+index 62b9dfd..ced3b62 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -12,12 +12,16 @@ CABAL=cabal --config-file=./cabal.config
- GEN=$(CABAL) new-run -j$(NCPUS) exe:xcffibgen --
+@@ -12,11 +12,15 @@ CABAL=cabal --config-file=./cabal.config
+ GEN=$(CABAL) new-run --minimize-conflict-set -j$(NCPUS) exe:xcffibgen --
  
  # you should have xcb-proto installed to run this
 -xcffib: module/*.py xcffib.cabal $(shell find . -path ./test -prune -false -o -name \*.hs)
@@ -13,7 +13,6 @@ index d1d62f6..7712b32 100644
  	cp ./module/*py ./xcffib/
  	touch ./xcffib/py.typed
  	sed -i "s/__xcb_proto_version__ = .*/__xcb_proto_version__ = \"${XCBVER}\"/" xcffib/__init__.py
- 	@if [ "$(TRAVIS)" = true ]; then python xcffib/ffi_build.py; else python xcffib/ffi_build.py > /dev/null 2>&1 || python3 xcffib/ffi_build.py; fi
 +	sed -i "s/version = .*/version = \"${ver}\"/" setup.py
 +	sed -i "s/__version__ = .*/__version__ = \"${ver}\"/" xcffib/__init__.py
 +	sed -r -i -e "s/(^version = \s*)[\"0-9\.]*/\1\"${ver}\"/" setup.py

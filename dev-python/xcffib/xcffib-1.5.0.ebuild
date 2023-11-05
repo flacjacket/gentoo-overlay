@@ -11,7 +11,7 @@ inherit haskell-cabal distutils-r1
 
 DESCRIPTION="A drop-in replacement for xpyb based on cffi"
 HOMEPAGE="https://github.com/tych0/xcffib"
-SRC_URI="https://github.com/tych0/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/tych0/${PN}/archive/v${PV}.tar.gz -> ${PN}-full-${PV}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0/${PV}"
