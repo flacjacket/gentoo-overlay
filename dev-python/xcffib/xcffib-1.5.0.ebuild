@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_1{0..2} pypy3 )
+PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 DISTUTILS_USE_PEP517=setuptools
 CABAL_FEATURES="lib profile haddock hoogle hscolour test-suite"
 
